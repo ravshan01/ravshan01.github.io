@@ -1,5 +1,19 @@
 window.addEventListener('load', ()=>{
 
+	fetch('./file-assets/header.html')
+	.then( response => response.text() )
+	.then( html => {
+		// Initialize the DOM parser
+		let parser = new DOMParser();
+
+		let $doc    = parser.parseFromString(html, "text/html");
+		let $header = $doc.querySelector('.header-wrap');
+		document.body.prepend($header)
+
+	})
+	.then( () => {
+
+
 	// const $preloader = document.querySelector('.preloader-wrap');
 	// $preloader.classList.add('hide');
 
@@ -30,5 +44,6 @@ window.addEventListener('load', ()=>{
 		$settingsLink.classList.toggle('settings-link-close');
 	})
 
-	
+
+	})
 })
