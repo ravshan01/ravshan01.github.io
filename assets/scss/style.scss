@@ -1,0 +1,37 @@
+@import './assets/_variable.scss';
+@import './assets/_header.scss';
+@import './assets/_main.scss';
+
+
+.img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: .8;
+}
+.img img{
+	display: block;
+	width: 100%;
+	min-width: 320px;
+	max-width: 1000px;
+	height: 100%;
+	max-height: 560px; 
+}
+
+
+@media (max-width: 960px){
+	.main{
+		flex-direction: column;
+	}
+	.content{
+		order: 2;
+	}
+
+	.img{
+		margin-bottom: 30px;
+	}
+	.img img{
+		width: 80%;
+		max-height: 480px;
+	}
+}
