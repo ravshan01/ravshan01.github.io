@@ -1,5 +1,5 @@
 
-function newSlider(obj){
+function createSlider(obj){
 	if ( obj.slide ){
 		let slider = new SlideSlider(obj);
 		slider.init();
@@ -150,8 +150,8 @@ class Slider{
 		controlsWrap.classList.add('controls-wrap');
 		this.controlsWrap.controlsWrap = controlsWrap;
 
-		if ( this.controls || this.dots ) {
 
+		if ( this.controls || this.dots ) {
 			//prev and next
 			if ( this.controls ) {
 				let prev = document.createElement('a');

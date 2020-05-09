@@ -3,11 +3,11 @@ window.addEventListener('load', ()=>{
 	let $h1 = document.querySelector('h1');
 	createAnimateText($h1);
 	
-	const slider = newSlider({
+	const slider = createSlider({
 		controls: false,
 		slide: true,
 		autoSlide: true,
-		duration: 2000
+		duration: 3000
 	})
 
 })
