@@ -390,7 +390,7 @@ p.footer {
     min-width: 200px;
     max-width: 220px;
     box-shadow: none;
-    transform: translateX(-100%); } }
+    transform: translateX(-110%); } }
 .visible {
   visibility: visible !important; }
 
@@ -447,7 +447,6 @@ body {
   background: #232B2E;
   color: #ddd;
   padding-left: 250px;
-  padding-right: 10px;
   font-size: 18px;
   line-height: 1.2;
   font-family: monospace;

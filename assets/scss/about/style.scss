@@ -2,6 +2,9 @@
 @import '../assets/_preloader.scss';
 @import '../assets/_header.scss';
 @import '../assets/_main.scss'; 
+@import '../assets/_slider.scss';
+
+
 
 .about-text{
 	margin-top: 30px;
@@ -37,6 +40,8 @@
 	height: 240px;
 	min-height: 240px;
 	margin: 70px;
+	margin-top: -30px;
+
 	transform-style: preserve-3d;
 	animation: piramid-rotate 25s linear infinite;
 }
@@ -95,6 +100,43 @@
 
 
 
+.slider{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	z-index: -1;
+}
+
+.slide{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.slide::before{
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #232B2Eee;
+	z-index: 1;
+}
+
+.slide img{
+	top: 50%;
+	left: 50%;
+	width: auto;
+	height: 80%;
+}
+
+
+
 
 @media (max-width: 960px){
 	.piramid{
@@ -104,8 +146,12 @@
 }
 
 
-@media (max-width: 480px){
+@media (max-width: $mobWidth){
+
 	.piramid{
-		margin-top: 30px;
+		display: none;
+	}
+	.slider{
+		display: block;
 	}
 }
