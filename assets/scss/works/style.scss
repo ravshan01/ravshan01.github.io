@@ -1,6 +1,8 @@
-@import './assets/_variable.scss';
-@import './assets/_header.scss';
-@import './assets/_main.scss';
+@import '../assets/_variable.scss';
+@import '../assets/_preloader.scss';
+@import '../assets/_header.scss';
+@import '../assets/_main.scss';
+
 
 main{
 	display: flex;

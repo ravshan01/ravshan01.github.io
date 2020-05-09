@@ -1,21 +1,19 @@
 window.addEventListener('load', ()=>{
 
-	fetch('./file-assets/header.html')
-	.then( response => response.text() )
-	.then( html => {
-		// Initialize the DOM parser
-		let parser = new DOMParser();
+const $preloader  = document.querySelector('.preloader-wrap');
+const $headerWrap = document.querySelector('.header-wrap'); 
 
-		let $doc    = parser.parseFromString(html, "text/html");
-		let $header = $doc.querySelector('.header-wrap');
-		document.body.prepend($header)
-
-	})
-	.then( () => {
+fetch('./file-assets/preloader.html')
+.then( response => response.text() )
+.then( html => $preloader.innerHTML = html)
 
 
-	// const $preloader = document.querySelector('.preloader-wrap');
-	// $preloader.classList.add('hide');
+fetch('./file-assets/header.html')
+.then( response => response.text() )
+.then( html => $headerWrap.innerHTML = html)
+.then( () =>{
+
+	$preloader.classList.add('hide');
 
 
 	//определяем активную ссылку в меню
