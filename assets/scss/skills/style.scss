@@ -106,12 +106,15 @@
 .slide{
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 }
 
 .slide img{
 	width: auto;
+	max-width: 100%;
 	height: 70%;
+	// margin-top: 10px;
 	z-index: -1;
 }
 .slide span{
@@ -136,6 +139,10 @@
 		display: none;
 	}
 	.slider{
-		height: 450px;
+		height: 400px
+	}
+	.slide{
+		transform: translateX(-1.5%);
 	}
 }
+

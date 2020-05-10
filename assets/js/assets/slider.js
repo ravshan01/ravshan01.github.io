@@ -239,8 +239,10 @@ class Slider{
 		}
 
 		function selectDirection(){
-			if ( this.mousePosition.pos2 > this.mousePosition.pos1 ) this.prev();
-			if ( this.mousePosition.pos1 > this.mousePosition.pos2 ) this.next();
+			let pos1 = this.mousePosition.pos1;
+			let pos2 = this.mousePosition.pos2; 
+			if ( pos2 > pos1 && pos2 - pos1 >= 100 ) this.prev();
+			if ( pos1 > pos2 && pos1 - pos2 >= 100 ) this.next();
 		}
 
 

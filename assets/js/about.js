@@ -5,7 +5,6 @@ window.addEventListener('load', ()=>{
 	
 	const slider = createSlider({
 		controls: false,
-		slide: true,
 		autoSlide: true,
 		duration: 3000
 	})
