@@ -1,0 +1,147 @@
+body{
+	color: #eee;
+}
+body div{
+	background: #ffffc0
+}
+
+a{
+	background: #1D3144!important;
+	border-color: #ddd;
+}
+a:hover{
+	background: #233d80!important;
+}
+
+
+
+
+
+/*---header---*/
+
+header{
+	background: #1D3144;
+}
+header a{
+	background: transparent;
+}
+
+.setting-active{
+	background: #233d80!important;
+}
+
+
+.nav li:first-child > a{
+	border-top-left-radius: 40px;
+}
+.nav li:last-child > a{
+	border-top-right-radius: 40px;
+}
+.player-settings .nav a{
+	border-radius: 0!important;
+}
+
+.nav li div{
+	border-color: #fff;
+}
+.nav li div a{
+	border: none;
+	border-bottom: 3px solid #fff
+}
+
+
+/*---players---*/
+.player{
+	border-color: #1D3144;
+}
+.player-name{
+	color: #1D3144;
+}
+
+.game-wrap > div > div{
+	z-index: 20;	
+}
+
+
+.minion{
+	display: block;
+	position: absolute;
+	z-index: 1;
+}
+
+.home-img-left{
+	top: 0;
+	left: 0;
+	width: 14%;
+	min-width: 240px;
+	height: 100%;
+}
+.home-img-right{
+	bottom: 0;
+	right: 0;
+	width: 16%;
+	min-width: 160px;
+	height: 50%;
+}
+
+
+
+/*---Game---*/
+
+.number{
+	color: #000;
+	text-shadow: 2px 2px 3px #002
+}
+.response{
+	border-color: #233d80;
+}
+.response:focus{
+	border-color: #111;
+	box-shadow: inset 0 0 30px #233d80bb
+}
+
+
+/*---Win and Defeat---*/
+.win, .defeat{
+	height: 60%;
+	text-shadow: 2px 2px 3px #002 
+}
+
+.win-img, .defeat-img{
+	display: block;
+	width: 16%;
+	min-width: 230px;
+	height: 78%;
+	margin: auto;
+	margin-top: 10px;
+}
+.win-img{
+	min-width: 400px;
+}
+.win-gif,.defeat-gif{
+	display: none;
+	width: 35%;
+	min-width: 210px;
+	height: 85%;
+	margin: auto;
+}
+.defeat-gif{
+	width: 70%;
+}
+
+.response-controls{
+	padding-top: 2%;
+}
+
+
+
+
+
+
+/*---Media---*/
+
+@media (max-width: 480px){
+	.home-img-left{
+		min-width: 160px
+	}
+}

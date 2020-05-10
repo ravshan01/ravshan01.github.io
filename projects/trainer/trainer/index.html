@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru_RU">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Тренажёр</title>
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/theme.css">
+	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+	<script src="assets/js/main.js" defer></script>
+</head>
+<body class="neon">
+	<header>
+		<ul class="nav">
+			<li>
+				<a href="#">операции</a>
+				<div class="operation">
+					<a href="#" class="setting-active plus-minus " value="randomly">+ / -</a>
+					<a href="#" value="+">+</a>
+					<a href="#" value="-">-</a>
+				</div>
+			</li>
+
+			<li>
+				<a href="#">цифры</a>
+				<div class="digits">
+					<a href="#" value="1" class="setting-active">1</a>
+					<a href="#" value="10">10</a>
+					<a href="#" value="100">100</a>
+					<a href="#" value="1000">1000</a>
+				</div>
+			</li>
+
+			<li>
+				<a href="#">действия</a>
+				<div class="numberCount number-count">
+					<a href="#" class="setting-active" value="2">2</a>
+					<a href="#" value="3">3</a>
+					<a href="#" value="4">4</a>
+					<a href="#" value="5">5</a>
+					<a href="#" value="6">6</a>
+					<a href="#" value="7">7</a>
+					<a href="#" value="8">8</a>
+					<a href="#" value="9">9</a>
+					<a href="#" value="10">10</a>
+					<a href="#" value="15">15</a>
+				</div>
+			</li>
+
+			<li>
+				<a href="#">скорость</a>
+				<div class="speed">
+					<a href="#" value="400">0.4</a>
+					<a href="#" value="600">0.6</a>
+					<a href="#" value="800">0.8</a>
+					<a href="#" value="1000" class="setting-active">1</a>
+					<a href="#" value="1500">1.5</a>
+					<a href="#" value="2000">2</a>
+					<a href="#" value="3000">3</a>
+					<a href="#" value="4000">4</a>
+				</div>
+			</li>
+
+			<li>
+				<a href="#">игроки</a>
+				<div class="players">
+					<a href="#" class="setting-active" value="1">1</a>
+					<a href="#" value="2">2</a>
+					<a href="#" value="3">3</a>
+				</div>
+			</li>
+
+			<li>
+				<a href="#">режимы</a>
+				<div class="modes">
+					<a href="#" class="setting-active" value="default">обычный</a>
+					<a href="#" value="turbo">турбо</a>
+				</div>
+			</li>
+		</ul>	
+	</header>
+
+
+<!-- game -->
+	<div class="game-wrap">
+		<img src="assets/images/home-minion1.png" alt="" class="home-img-left minion">
+		<img src="assets/images/home-minion2.png" alt="" class="home-img-right minion">
+
+		<!-- Player1 -->
+		<div class="player player1">
+			<input type="text" class="player-name" value="Игрок1">
+
+			<div class="home">
+				<a href="#" class="play">Старт</a>
+				<a href="#" class="settings">Настройки</a>
+			</div>
+
+			<div class="game">
+				<div class="turbo-color"></div>
+
+				<div class="number"></div>
+				<div class="input">
+					<input type="text" class="response">
+					<a href="#" class="submit">Проверить</a>
+				</div>
+			</div>
+
+
+			<div class="response-div">
+				<div class="win">
+					<span>Правильно</span>
+					<img src="assets/images/win.png" alt="" class="win-img">
+					<img src="assets/images/win-gif.gif" alt="" class="win-gif">
+				</div>
+				<div class="defeat">
+					<span>Неправильно</span>
+					<img src="assets/images/defeat.png" alt="" class="defeat-img">
+					<img src="assets/images/defeat-gif.gif" alt="" class="defeat-gif">
+				</div>
+
+				<div class="response-controls">
+					<a href="#" class="repeat">Заново</a>
+					<a href="#" class="next">Следующий</a>
+					<a href="#" class="quit">Главная</a>
+				</div>
+			</div>
+
+
+		</div>
+
+
+		<!-- Player2 -->
+		<div class="player player2">
+			<input type="text" class="player-name" value="игрок2">
+
+			<div class="home">
+				<a href="#" class="play">старт</a>
+				<a href="#" class="settings">настройки</a>
+			</div>
+
+			<div class="game">
+				<div class="turbo-color"></div>
+
+				<div class="number"></div>
+				<div class="input">
+					<input type="text" class="response">
+					<a href="#" class="submit">Проверить</a>
+				</div>
+			</div>
+
+
+			<div class="response-div">
+				<div class="win">
+					<span>Правильно</span>
+					<img src="assets/images/win.png" alt="" class="win-img">
+					<img src="assets/images/win-gif.gif" alt="" class="win-gif">
+				</div>
+				<div class="defeat">
+					<span>Неправильно</span>
+					<img src="assets/images/defeat.png" alt="" class="defeat-img">
+					<img src="assets/images/defeat-gif.gif" alt="" class="defeat-gif">
+				</div>
+
+				<div class="response-controls">
+					<a href="#" class="repeat">Заново</a>
+					<a href="#" class="next">Следующий</a>
+					<a href="#" class="quit">Главная</a>
+				</div>
+			</div>
+
+		</div>
+
+
+		<!-- Player3 -->
+		<div class="player player3">
+			<input type="text" class="player-name" value="игрок3">
+
+			<div class="home">
+				<a href="#" class="play">старт</a>
+				<a href="#" class="settings">настройки</a>
+			</div>
+
+			<div class="game">
+				<div class="turbo-color"></div>
+
+				<div class="number"></div>
+				<div class="input">
+					<input type="text" class="response">
+					<a href="#" class="submit">Проверить</a>
+				</div>
+			</div>
+
+
+			<div class="response-div">
+				<div class="win">
+					<span>Правильно</span>
+					<img src="assets/images/win.png" alt="" class="win-img">
+					<img src="assets/images/win-gif.gif" alt="" class="win-gif">
+				</div>
+				<div class="defeat">
+					<span>Неправильно</span>
+					<img src="assets/images/defeat.png" alt="" class="defeat-img">
+					<img src="assets/images/defeat-gif.gif" alt="" class="defeat-gif">
+				</div>
+
+				<div class="response-controls">
+					<a href="#" class="repeat">Заново</a>
+					<a href="#" class="next">Следующий</a>
+					<a href="#" class="quit">Главная</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+</body>
+</html>

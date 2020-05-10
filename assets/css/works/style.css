@@ -573,13 +573,11 @@ section > img {
   padding: 3px 0;
   margin-bottom: 1em; }
 
-.exposition h3 {
+.exposition span {
+  position: relative;
   text-transform: capitalize;
   margin-bottom: 5px;
   font-size: 1.1em; }
-
-.exposition span {
-  position: relative; }
 
 .exposition::before {
   content: "";

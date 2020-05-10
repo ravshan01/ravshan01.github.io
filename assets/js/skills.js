@@ -8,6 +8,8 @@ window.addEventListener('load', ()=>{
 		duration: 4000
 	});
 
+	// window.addEventListener('click', e => console.log(e))
+
 
 	class Cube{
 		constructor(obj){
@@ -30,14 +32,20 @@ window.addEventListener('load', ()=>{
 
 		init(){
 			this.$wrap.addEventListener( 'mousedown', this.mouseDown.bind(this) );
+			this.$wrap.addEventListener('touchstart', this.mouseDown.bind(this) );
+
 			window.addEventListener( 'mouseup',  this.mouseUp.bind(this) );
+			window.addEventListener( 'touchend', this.mouseUp.bind(this) );
+
 			this.$wrap.addEventListener( 'mousemove', this.rotate.bind(this) );
+			this.$wrap.addEventListener( 'touchmove', this.rotate.bind(this) );
 		}
 
-		rotate(e){
+		rotate(event){
 			if ( this.isMouseDown ){
 
-				// let e = event.clientX ? event : event.changedTouches[0];
+				let e = event.clientX && event.clientX !== 0 ? event : event.changedTouches[0];
+
 				let posX = e.clientX;
 				let posY = e.clientY;
 
@@ -50,9 +58,8 @@ window.addEventListener('load', ()=>{
 
 		}
 
-		mouseDown(e){
-			// let e = event.clientX ? event : event.changedTouches[0];
-
+		mouseDown(event){
+			let e = event.clientX ? event : event.changedTouches[0];
 
 			this.isMouseDown = true;
 			this.startPosX = e.clientX;

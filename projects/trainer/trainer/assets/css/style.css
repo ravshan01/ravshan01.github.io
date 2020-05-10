@@ -1,0 +1,444 @@
+body{
+	font-family: monospace;
+	font-size: 22px;
+	height: 100vh;
+	overflow: hidden;
+}
+body div{
+	background: #eee
+}
+
+a{
+	padding: 14px;
+	text-transform: capitalize;
+	text-align: center;
+	background: #fff;
+	border: 2px solid #000;
+	border-radius: 30px;
+	-webkit-transition: background .3s;
+	transition: background .3s;
+}
+
+.visible{
+	visibility: visible!important;
+}
+.hide{
+	visibility: hidden!important;
+}
+.display-none{
+	display: none!important;
+}
+.display-block{
+	display: block!important
+}
+
+.setting-active{
+	background: #aaa;
+}
+
+
+/*---Header---*/
+
+header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 14px 0;
+	background: #fff;
+	-webkit-box-shadow: 0 2px 15px #000c;
+	box-shadow: 0 2px 15px #000c;
+	-webkit-transform: translateY(-80%);
+	transform: translateY(-80%);
+	-webkit-transition: .4s .3s;
+	transition: .4s .3s;
+	z-index: 9999;
+}
+header:hover{
+	-webkit-transform: translate(0);
+	transform: translate(0);
+}
+
+.nav{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	max-width: 1666px;
+	margin: auto;
+	z-index: 50;
+}
+.nav li{
+	position: relative;
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+.nav li a{
+	display: block;
+	padding: 14px 4px;
+	border-radius: 0;
+}
+
+.nav li div{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	border: 2.2px solid #000;
+	-webkit-transform: translateY(100%);
+	transform: translateY(100%);
+	overflow: hidden;
+	visibility: hidden;
+}
+.nav li:hover > div{
+	visibility: visible;
+}
+
+
+/*---Game---*/
+
+.game-wrap{
+	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: 100%;
+	z-index: 999;
+}
+.player{
+	position: relative;
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	border-left: 2px solid #000;
+	overflow: hidden;
+}
+.player1{
+	border: none;
+}
+
+.player-name{
+	position: absolute;
+	top: 14px;
+	right: 0;
+	width: 25%;
+	min-width: 240px;
+	background: transparent;
+	padding: 6px;
+	padding-right: 30px;
+	font-size: 1.3em;
+	font-weight: bold;
+	text-align: right;
+	text-transform: capitalize;
+	border: 1px solid transparent;
+	border-radius: 40px;
+
+	-webkit-transition: .3s;
+
+	transition: .3s;
+	z-index: 90;
+}
+.player-name:focus{
+	background: #fff3;
+	border-color: #0008
+}
+
+.turbo-color{
+	position: absolute;
+	top: 4%;
+	left: 0;
+	right: 0;
+	font-size: 3em;
+	font-weight: bold;
+	text-align: center;
+	z-index: 99;
+	visibility: hidden;
+}
+
+
+.home{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	height: 100%;
+}
+.home a{
+	position: relative;
+	width: 80%;
+	max-width: 230px;
+	margin-bottom: 14px;
+	font-size: 1.3em;
+	text-align: center;
+
+	z-index: 50;
+}
+
+.game{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	visibility: hidden;
+}
+
+.number{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	font-size: 8em;
+	font-weight: bold;
+}
+
+.input{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	height: 100%;
+	visibility: hidden;
+}
+.response{
+	width: 80%;
+	max-width: 500px;
+	margin-bottom: 20px;
+	padding: 10px 4%;
+	font-size: 3em;
+	font-weight: bold;
+	text-align: center;
+	border: 2px solid #000a;
+	border-radius: 50px;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+.submit{
+	padding: 16px 30px;
+	font-size: 1.2em;
+}
+
+
+
+
+/*---defeat  win---*/
+.response-div{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	left: -3%;
+	right: 0;
+	bottom: 0;
+	visibility: hidden;
+}
+
+
+.defeat, .win{
+	padding-top: 30px;
+	color: lime;
+	text-align: center;
+	font-size: 3em;
+	font-weight: bold;
+	height: 50%;
+	display: none;
+}
+.defeat{
+	color: red;
+}
+
+.response-controls{
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.response-controls > a{
+	width: 80%;
+	max-width: 250px;
+	margin-bottom: 14px;
+	padding: 12px 20px;
+	font-size: 1.2em;
+}
+
+
+
+/*---Player Settings---*/
+
+.player-settings{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	font-size: .9em;
+	visibility: hidden;
+}
+.player-settings .nav{
+	margin: 0;
+	margin-right: 50%;
+	margin-left: auto;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+.player-settings li{
+	margin-bottom: 2px;
+}
+.player-settings li > a{
+	padding: 12px 70px;
+}
+
+.player-settings li > div{
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+	position: absolute;
+	-webkit-transform: translate(100%, 50%);
+	transform: translate(100%, 50%);
+}
+
+
+.quit-settings{
+	position: absolute;
+	top: 8%;
+	right: 1%;
+	padding: 14px 24px;
+	/*transform: translateX(-50%);*/
+	z-index: 990
+}
+.quit-settings:hover{
+	cursor: pointer;
+}
+
+
+
+
+/*---Media---*/
+
+@media (min-width: 1800px){
+	body{
+		font-size: 28px;
+	}
+
+	.home a, .response-controls > a{
+		max-width: 340px;
+	}
+}
+
+
+@media (max-width: 1350px){
+	.nav .players a:last-child{
+		display: none;
+	}
+
+	.player3{
+		display: none!important;
+	}
+
+}
+@media (max-width: 1200px){
+	body{
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 960px){
+	header{
+		display: none;
+	}
+
+	.player2{
+		display: none!important;
+	}
+}
+
+@media ( max-width: 480px ){
+	.nav li:hover > div{
+		visibility: hidden;
+	}
+}
+
+
+@media (min-width: 2800px){
+	body{
+		font-size: 30px;
+	}
+
+	.home a{
+		max-width: 360px;
+	}
+	.response-controls a{
+		max-width: 360px;
+	}
+
+	.defeat, .win{
+		font-size: 4em;
+	}
+
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Paint</title>
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+	<script src="assets/js/main.js"></script>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+
+	<div class="controls">
+		<a href="#" class="clear"><span>Очистить</span> <i class="fa fa-cut"></i></a>
+		<a href="#" class="save"><span>Сохранить</span> <i class="fa fa-save"></i></a>
+		<a href="#" class="replay"><span>Повторить</span> <i class="fa fa-repeat"></i></a>
+		<a href="#" class="settings"><i class="fa fa-cog"></i></a>
+		<div class="settings-wrap">	
+
+			<div class="color-wrap">
+				<a href="#" class="color-link">Выбрать цвет <i class="fa fa-chevron-down"></i></a>
+
+				<ul class="color">
+					<li><span>#000000</span></li> <li><span>#222347</span></li>
+					<li><span>#FAB155</span></li> <li><span>#A95577</span></li>
+					<li><span>#92F22A</span></li> <li><span>#7CEECE</span></li>
+					<li><span>#EFE0B1</span></li> <li><span>#47B39D</span></li>
+					<li><span>#2280B0</span></li> <li><span>#FF738F</span></li>
+					<li><span>#69636E</span></li> <li><span>#AF8AC2</span></li>
+					<li><span>#73999E</span></li> <li><span>#2C82C9</span></li>
+					<li><span>#FF7B2C</span></li> <li><span>#3D3633</span></li>
+					<li><span>#FFF457</span></li> <li><span>#44BBFF</span></li>
+					<li><span>#62C462</span></li> <li><span>#ffffff</span></li>
+				</ul>
+			</div>
+
+			<div class="background-wrap">
+				<a href="#" class="background-link">Выбрать фон <i class="fa fa-chevron-down"></i></a>
+				<ul class="background">
+					<li><span>#000000</span></li> <li><span>#222347</span></li>
+					<li><span>#FAB155</span></li> <li><span>#A95577</span></li>
+					<li><span>#92F22A</span></li> <li><span>#7CEECE</span></li>
+					<li><span>#EFE0B1</span></li> <li><span>#47B39D</span></li>
+					<li><span>#2280B0</span></li> <li><span>#FF738F</span></li>
+					<li><span>#69636E</span></li> <li><span>#AF8AC2</span></li>
+					<li><span>#73999E</span></li> <li><span>#2C82C9</span></li>
+					<li><span>#FF7B2C</span></li> <li><span>#3D3633</span></li>
+					<li><span>#FFF457</span></li> <li><span>#44BBFF</span></li>
+					<li><span>#62C462</span></li> <li><span>#ffffff</span></li>
+				</ul>
+
+			</div>
+
+			<div class="width-wrap">
+				<a href="#" class="width-link">Размер кисти <i class="fa fa-chevron-down"></i></a>
+
+				<ul class="width">
+					<li><span>6</span></li>
+					<li><span>10</span></li>
+					<li><span>14</span></li>
+					<li><span>18</span></li>
+					<li><span>20</span></li>
+					<li><span>24</span></li>
+					<li><span>38</span></li>
+					<li><span>34</span></li>
+					<li><span>40</span></li>
+					<li><span>44</span></li>
+					<li><span>50</span></li>
+					<li><span>60</span></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	<div class="saved">Сохранено</div>
+	
+	<div class="preloader-wrap"><div class="preloader"></div></div>
+</body>
+</html>

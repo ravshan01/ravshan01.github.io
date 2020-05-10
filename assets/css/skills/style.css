@@ -771,7 +771,10 @@ h1 {
 @media (max-width: 960px) {
   .slide img {
     height: 60%; } }
-@media (max-width: 480px) {
+@media (max-width: 640px) {
+  .cube-wrap {
+    display: none; }
+
   .slider {
     height: 450px; } }
 
