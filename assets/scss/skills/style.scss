@@ -132,6 +132,9 @@
 	.slide img{
 		height: 60%;
 	}
+	.slide{
+		transform: translateX(-1.5%);
+	}
 }
 
 @media (max-width: $mobWidth){
@@ -140,9 +143,6 @@
 	}
 	.slider{
 		height: 400px
-	}
-	.slide{
-		transform: translateX(-1.5%);
 	}
 }
 
