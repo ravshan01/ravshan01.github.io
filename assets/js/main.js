@@ -1,12 +1,7 @@
 window.addEventListener('load', ()=>{
 
-const $preloader  = document.querySelector('.preloader-wrap');
+const $preloader = document.querySelector('.preloader-wrap');
 const $headerWrap = document.querySelector('.header-wrap'); 
-
-fetch('./file-assets/preloader.html')
-.then( response => response.text() )
-.then( html => $preloader.innerHTML = html)
-
 
 fetch('./file-assets/header.html')
 .then( response => response.text() )
