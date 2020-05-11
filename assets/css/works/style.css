@@ -874,8 +874,7 @@ body {
   padding-left: 250px;
   font-size: 18px;
   line-height: 1.2;
-  font-family: monospace;
-  overflow-x: hidden; }
+  font-family: monospace; }
 
 .body-start-text, .body-end-text {
   height: 10%;
