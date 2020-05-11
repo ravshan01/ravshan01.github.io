@@ -102,20 +102,26 @@ canvas{
 	align-items: center;
 	position: relative;
 	margin-left: 5px;
-	padding: 10px 14px;
-	background: #ECC856;
-	color: #000;
+	padding: 10px 18px;
+
+	background: #1d1d1d;
+	color: #09FDD9;
 	font-weight: bold;
-	border: 2px solid #E85577;
+	border: 2px solid #09FDD9;
 	border-radius: 12px;
+	transition: .4s;
+}
+.controls > a:hover{
+	background: #09FDD9;
+	color: #000;
 }
 .controls > a:not(.settings) i{
 	display: none;
 }
 
 .settings{
+	margin-left: 10px!important;
 	z-index: 50;
-	transition: .4s;
 }
 .settings i{
 	-webkit-transform: rotate(0deg);
@@ -142,10 +148,9 @@ canvas{
 	top: 0;
 	right: 0;
 	padding: 44px 15px 15px;
-	background: #ECC856dd;
-	background: linear-gradient(top left, #ECE840, #EC8488dd);
-	border: 2px solid #E85577;
-	border-radius: 12px;
+	background: #000c;
+	border: 2px solid #09FDD9;
+	border-radius: 10px;
 	opacity: 0;
 	-webkit-transform-origin: top right;
 	        transform-origin: top right;
@@ -170,18 +175,19 @@ canvas{
 
 .color-wrap, .background-wrap, .width-wrap{
 	position: relative;
-	/*perspective: 1000px*/
 }
 .color-link, .background-link, .width-link{
 	position: relative;
 	display: block;
 	margin: 4px 0;
 	padding: 8px 20px;
+	background: #000;
+	color: #09FDD9;
 	font-size: .84rem;
 	font-weight: bold;
 	text-align: center;
-	background: #EFE0B1;
-	border: 2px solid #E85577;
+
+	border: 2px solid #09FDD9;
 	border-radius: 12px;
 	transition: .4s;
 	z-index: 10;
@@ -209,9 +215,8 @@ canvas{
 	opacity: 0;
 	padding: 8px;
 	width: auto;
-	background: #ECC856dd;
-	background: linear-gradient(top left, #ECE840, #EC8488dd);
-	border: 2px solid #e85577;
+	background: #000;
+	border: 2px solid #09FDD9;
 	border-radius: 12px;
 	transition: .4s;
 	-webkit-transform-origin: center top;
@@ -226,16 +231,16 @@ canvas{
 
 .color li, .background li, .width li{
 	position: relative;
-	border: 2px solid #000a;
+	border: 1px solid #fffa;
 	width: 60px;
 	height: 30px;
 	border-radius: 12px;
 	transition: .4s;
 }
 .width li{
-	border: 2px solid #000a;
+	border: 2px solid #09FDD9;
 	border-radius: 50%;
-	background: #0004;
+	background: #09FDD933;
 }
 .color li:not(.active):hover, .background li:not(.active):hover, .width li:not(.active):hover{
 	-webkit-filter: brightness(120%);
@@ -251,7 +256,9 @@ canvas{
 	        transform: scale(1.16);
 }
 .width li.active{
-	background: #000;
+	/*background: #000;*/
+	border-color: #000;
+	background: #09FDD9
 }
 .color li span, .background li span, .width span{
 	display: none;
