@@ -231,7 +231,7 @@ canvas{
 
 .color li, .background li, .width li{
 	position: relative;
-	border: 1px solid #fffa;
+	border: 2px solid #fff4;
 	width: 60px;
 	height: 30px;
 	border-radius: 12px;
