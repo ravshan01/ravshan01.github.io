@@ -1022,4 +1022,8 @@ h1 {
   left: 0;
   width: 100%; }
 
+@media (max-width: 420px) {
+  .contact-links {
+    margin-bottom: 20px; } }
+
 /*# sourceMappingURL=style.css.map */
