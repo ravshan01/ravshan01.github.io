@@ -10,8 +10,7 @@ fetch('./file-assets/header.html')
 
 	$preloader.classList.add('hide');
 
-	window.addEventListener('mousedown', e => e.preventDefault())
-
+	window.addEventListener('mousedown', e => e.preventDefault());
 
 
 
