@@ -178,6 +178,9 @@ section:hover .img-hover{
 		grid-template-columns: 1fr
 	}
 	section{
-		max-width: 360px
+		max-width: 360px;
+		min-height: 220px;
 	}
 }
+
+// @media (max-width: )
