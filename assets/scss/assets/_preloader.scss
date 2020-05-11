@@ -81,6 +81,34 @@ $movement: (
   $len: length($dirArr);
   $step: percentage(1/$len);
 
+  @-webkit-keyframes moveBox-#{$i} {
+
+    @each $dir in $dirArr {
+      @if ($dir == "-x") {
+        $xVal: $xVal - $stepSize;
+      }
+      @if ($dir == "+x") {
+        $xVal: $xVal + $stepSize;
+      }
+      @if ($dir == "-y") {
+        $yVal: $yVal - $stepSize;
+      }
+      @if ($dir == "+y") {
+        $yVal: $yVal + $stepSize;
+      }
+
+
+      #{$step * $n} {
+        -webkit-transform: translate($xVal, $yVal);
+        transform: translate($xVal, $yVal);
+      }
+
+
+      $n: $n + 1;
+    }
+
+  }
+
   @keyframes moveBox-#{$i} {
 
     @each $dir in $dirArr {
@@ -99,6 +127,7 @@ $movement: (
 
 
       #{$step * $n} {
+        -webkit-transform: translate($xVal, $yVal);
         transform: translate($xVal, $yVal);
       }
 
@@ -109,6 +138,7 @@ $movement: (
   }
 
   .banter-loader__box:nth-child(#{$i}) {
+    -webkit-animation: moveBox-#{$i} $animTime infinite;
     animation: moveBox-#{$i} $animTime infinite;
   }
 }

@@ -13,6 +13,7 @@
 }
 
 .translate-0{
+	-webkit-transform: translate(0)!important;
 	transform: translate(0)!important;
 }
 
@@ -28,8 +29,17 @@
 }
 
 
+@-webkit-keyframes text-animate{
+	50%{
+		-webkit-transform: translateY(-20%) scale(1.1);
+		transform: translateY(-20%) scale(1.1);
+	}
+}
+
+
 @keyframes text-animate{
 	50%{
+		-webkit-transform: translateY(-20%) scale(1.1);
 		transform: translateY(-20%) scale(1.1);
 	}
 }
@@ -37,6 +47,7 @@
 .text-animate{
 	display: inline-block;
 	color: $blue;
+	-webkit-animation: text-animate 1s ;
 	animation: text-animate 1s ;
 }
 
@@ -44,6 +55,7 @@
 .button{
 	display: block;
 	width: auto;
+	-ms-flex-item-align: start;
 	align-self: flex-start;
 
 	color: $blue;
@@ -51,6 +63,7 @@
 	padding: 10px 20px;
 	font-size: 1.1em;
 	border: 1px solid $blue;
+	-webkit-transition: .4s;
 	transition: .4s;
 }
 .button:hover{
@@ -93,7 +106,12 @@ body{
 }
 
 .wrap{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
 	flex-direction: column;
 	min-height: 100vh;
 	padding: 10px;
@@ -102,15 +120,28 @@ body{
 
 .main{
 	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	-ms-flex-pack: distribute;
 	justify-content: space-around;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
 	flex: 1;
 	padding-left: 1.7em;
 }
 .content{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
 	flex-direction: column;
 	min-width: 320px;
 }

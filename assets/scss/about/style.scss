@@ -6,6 +6,7 @@
 
 
 .main{
+	-ms-flex-wrap: wrap-reverse;
 	flex-wrap: wrap-reverse;
 }
 
@@ -18,19 +19,40 @@
 }
 
 .main{
+	-webkit-perspective: 1000px;
 	perspective: 1000px;
+}
+
+
+
+@-webkit-keyframes piramid-rotate{
+	25%{
+		-webkit-transform: rotateX(-50deg) rotateY(-360deg);
+		transform: rotateX(-50deg) rotateY(-360deg);
+	}
+	55%{
+		-webkit-transform: rotateX(0deg) rotateY(-60deg);
+		transform: rotateX(0deg) rotateY(-60deg);
+	}
+	80%{
+		-webkit-transform: rotateX(70deg) rotateY(150deg);
+		transform: rotateX(70deg) rotateY(150deg);
+	}
 }
 
 
 
 @keyframes piramid-rotate{
 	25%{
+		-webkit-transform: rotateX(-50deg) rotateY(-360deg);
 		transform: rotateX(-50deg) rotateY(-360deg);
 	}
 	55%{
+		-webkit-transform: rotateX(0deg) rotateY(-60deg);
 		transform: rotateX(0deg) rotateY(-60deg);
 	}
 	80%{
+		-webkit-transform: rotateX(70deg) rotateY(150deg);
 		transform: rotateX(70deg) rotateY(150deg);
 	}
 }
@@ -45,14 +67,23 @@
 	margin: 70px;
 	margin-top: -30px;
 
+	-webkit-transform-style: preserve-3d;
+
 	transform-style: preserve-3d;
+	-webkit-animation: piramid-rotate 25s linear infinite;
 	animation: piramid-rotate 25s linear infinite;
 }
 
 
 .side{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 
 	position: absolute;
@@ -65,7 +96,10 @@
 	padding-bottom: 40px;
 	background: #0d0d0d;
 
+	-webkit-transform-origin: bottom center;
+
 	transform-origin: bottom center;
+	-webkit-clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
 	clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
 }
 .side img{
@@ -77,8 +111,12 @@
 
 
 .base{
+	-webkit-transform-origin: center center;
 	transform-origin: center center;
+	-webkit-clip-path: none;
 	clip-path: none;
+
+	-webkit-transform: translateY(119.2px) rotateX(90deg) rotateY(180deg);
 
 	transform: translateY(119.2px) rotateX(90deg) rotateY(180deg);
 }
@@ -88,16 +126,20 @@
 }
 
 .left{
+	-webkit-transform: translateX(-119.2px) rotateY(-90deg) rotateX(30deg);
 	transform: translateX(-119.2px) rotateY(-90deg) rotateX(30deg);
 }
 .right{
+	-webkit-transform: translateX(119.2px) rotateY(90deg) rotateX(30deg);
 	transform: translateX(119.2px) rotateY(90deg) rotateX(30deg);
 }
 
 .front{
+	-webkit-transform: translateZ(119.2px) rotateX(30deg);
 	transform: translateZ(119.2px) rotateX(30deg);
 }
 .back{
+	-webkit-transform: translateZ(-119.2px) rotateY(180deg) rotateX(30deg);
 	transform: translateZ(-119.2px) rotateY(180deg) rotateX(30deg);
 }
 
@@ -115,8 +157,14 @@
 
 .slide{
 	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 }
 .slide::before{
