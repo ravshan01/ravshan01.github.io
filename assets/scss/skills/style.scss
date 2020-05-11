@@ -112,10 +112,10 @@
 
 .slide img{
 	width: auto;
-	max-width: 100%;
+	max-width: 95%;
 	height: 70%;
-	// margin-top: 10px;
 	z-index: -1;
+	object-fit: cover;
 }
 .slide span{
 	padding: 20px 0;
@@ -146,3 +146,12 @@
 	}
 }
 
+
+@media (max-width: 360px){
+	.slider{
+		max-width: 300px;
+	}
+	.slide img{
+		max-width: 80%;
+	}
+}

@@ -57,6 +57,10 @@
 	background: $blue;
 	color: #000;
 }
+.button-active{
+	background: $blue;
+	color: #000;
+}
 
 
 
@@ -73,7 +77,7 @@ body{
 	font-size: 18px;
 	line-height: 1.2;
 	font-family: monospace;
-	// overflow-x: hidden;
+	overflow-x: hidden;
 }
 
 .body-start-text, .body-end-text{
@@ -167,11 +171,5 @@ h1{
 @media (max-width: 480px){
 	body{
 		font-size: 14px;
-	}
-}
-
-@media (max-width: 360px){
-	.slider{
-		max-width: 320px
 	}
 }

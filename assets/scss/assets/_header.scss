@@ -44,7 +44,7 @@ header.translate-0{
 
 .logo{
 	width: 100%;
-	height: 35%;
+	height: 38%;
 }
 .logo img{
 	width: 100%;
@@ -88,30 +88,6 @@ header.translate-0{
 
 /*-----Nav-----*/
 
-
-.share{
-	display: flex;
-	justify-content: flex-end;
-	padding-right: 15px;
-}
-.share a{
-	display: block;
-	width: 30px;
-	height: 30px;
-	background: #259;
-	color: #fff;
-	margin-left: 8px;
-	padding: 2px;
-
-	font-size: 1rem;
-	text-align: center;
-	line-height: 26px;
-	border-radius: 50%;
-	transition: .2s;
-}
-.share a:hover{
-	transform: scale(1.35);
-}
 
 p.footer{
 	display: block;
