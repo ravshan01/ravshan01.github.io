@@ -959,12 +959,12 @@ h1 {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: start; }
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
 
 .content {
-  margin: 100px 0; }
+  margin: 60px 0; }
 
 .contact-wrap {
   display: -webkit-box;
