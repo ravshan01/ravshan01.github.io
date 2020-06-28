@@ -1,28 +1,30 @@
 
-function createSlider(obj){
+function createSlider(elem, obj){
 	if ( obj.slide ){
-		let slider = new SlideSlider(obj);
+		let slider = new SlideSlider(elem, obj);
 		slider.init();
 		return slider;
 	}
-	let slider = new FadeOutSlider(obj);
+	let slider = new FadeOutSlider(elem, obj);
 	slider.init();
 	return slider;
 }
 
 
 class Slider{
-	constructor(obj){
-		this.slider       = obj.slider ? document.querySelector(obj.slider) : document.querySelector('.slider');
+	constructor(elem, obj){
+		this.slider       = elem;
 		this.slidesWrap   = this.slider.querySelector('.slides');
 		this.slides       = Array.from( this.slidesWrap.children );
+
 		this.controls     = obj.controls == false ? false : true;
-		this.dots         = obj.dots ? true : false;
+		this.dots         = obj.dots && obj.dots != undefined ? true : false;
 		this.slide        = obj.slide && obj.slide != undefined ? obj.slide : false;
+
 		this.infinite     = obj.infinite == false ? false : true;
-		this.autoSlide    = obj.autoSlide ? true : false;
+		this.autoSlide    = obj.autoSlide && obj.autoSlide != undefined ? true : false;
 		this.timeline     = obj.timeline || obj.fullPage ? true : false;
-		this.fullPage     = obj.fullPage ?  true : false;
+		this.fullPage     = obj.fullPage && obj.fullPage != undefined ? true : false;
 		this.controlsWrap = {}
 
 		if ( obj.active ) this.activeIndex = obj.active - 1;
@@ -42,34 +44,10 @@ class Slider{
 
 //functions
 
-	show(){
-		let slideActive = false;
-		let dotsActive  = this.controlsWrap.controlsWrap.querySelector('.dots-active');
-
-		for ( let i = 0; i < this.slides.length; i++ ){
-			if ( this.slides[i].classList.contains('slide-active') ) slideActive = this.slides[i];
-		}
-
-		if ( slideActive ) slideActive.classList.remove('slide-active');
-		if ( dotsActive )  dotsActive.classList.remove('dots-active');
-
-		this.slides[this.activeIndex].classList.add('slide-active');
-		if ( this.dots ) this.controlsWrap.dots[this.activeIndex].classList.add('dots-active');
-	}
-
-	autoShow(){
-		this.next();
-		this.show();
-	}
-	resetAutoShow(){
-		clearInterval(this.timer);
-		this.timer = setInterval(this.autoShow.bind(this), this.duration);
-	}
-
-
 	init(){
 		this.createControls();
 		this.addMouseSlide();
+
 
 		if ( this.slide ) this.slider.classList.add('slide-slider');
 		else this.slider.classList.add('fade-out-slider');
@@ -106,8 +84,7 @@ class Slider{
 			if ( window.onwell != undefined ){
 				window.addEventListener('wheel', this.wheelScroll.bind(this) );
 				return;
-			}
-			if ( window.onmousewheel != undefined ){
+			}else if ( window.onmousewheel != undefined ){
 				window.addEventListener('mousewheel', this.wheelScroll.bind(this) )
 				return;
 			}
@@ -116,6 +93,36 @@ class Slider{
 
 	}
 
+
+	show(){
+		let slideActive = false;
+		let dotsActive  = this.controlsWrap.controlsWrap.querySelector('.dots-active');
+
+		for ( let i = 0; i < this.slides.length; i++ ){
+			if ( this.slides[i].classList.contains('slide-active') ) slideActive = this.slides[i];
+		}
+
+		if ( slideActive ) slideActive.classList.remove('slide-active');
+		if ( dotsActive )  dotsActive.classList.remove('dots-active');
+
+		this.slides[this.activeIndex].classList.add('slide-active');
+		if ( this.dots ) this.controlsWrap.dots[this.activeIndex].classList.add('dots-active');
+	}
+
+	autoShow(){
+		this.next();
+		this.show();
+	}
+	resetAutoShow(){
+		clearInterval(this.timer);
+		this.timer = setInterval(this.autoShow.bind(this), this.duration);
+	}
+
+
+
+	noTextSelection(){
+		this.slider.addEventListener('mousedown', e => e.preventDefault())
+	}
 
 	noInfinite(eventType){
 		if ( eventType == 'prev' ) {
@@ -137,11 +144,73 @@ class Slider{
 		let disable = this.slider.querySelector('.disable');
 		if ( disable ) disable.classList.remove('disable');
 
-		if ( index <= 0 ) this.controlsWrap.prev.classList.add('disable');
+		if ( index <= 0 && this.controls ) this.controlsWrap.prev.classList.add('disable');
 
-		if ( index == this.slides.length - 1 || index == this.slides.length ){
+		if ( (index == this.slides.length - 1 || index == this.slides.length) && this.controls ){
 			this.controlsWrap.next.classList.add('disable');
 		}
+	}
+
+
+	addMouseSlide(){
+		this.mousePosition = {};
+		this.mousePosition.pos1 = 0;
+		this.mousePosition.pos2 = 0;
+
+		this.isMouseDown = false; // пока нигде не используется
+
+
+		this.slider.addEventListener('mousedown', setMousePositionStart.bind(this) );
+		this.slider.addEventListener('mouseup',   setMousePositionEnd.bind(this) );
+		this.slider.addEventListener('touchstart', setMousePositionStart.bind(this) );
+		this.slider.addEventListener('touchend', setMousePositionEnd.bind(this) );
+
+		this.slider.addEventListener('mouseout', () => this.isMouseDown = false)
+
+
+		let children = Array.from( this.slider.children ); // отменяем drag событие
+		children.forEach( elem =>{
+			elem.ondragstart = e => false
+		})
+
+
+		function setMousePositionStart(event){
+
+			let e = event.clientX ? event : event.changedTouches[0];
+			this.isMouseDown = true;
+
+			if ( this.timeline ) this.mousePosition.pos1 = e.clientY;
+			else this.mousePosition.pos1 = e.clientX;
+
+		}
+
+		function setMousePositionEnd(event){
+			
+			let e = event.clientX ? event : event.changedTouches[0];
+			this.isMouseDown = false;
+
+			if ( this.timeline ) this.mousePosition.pos2 = e.clientY;
+			else this.mousePosition.pos2 = e.clientX;
+
+			selectDirection.bind(this)();
+
+		}
+
+		function selectDirection(){
+
+			let pos1 = this.mousePosition.pos1;
+			let pos2 = this.mousePosition.pos2;
+			if ( pos2 > pos1 && pos2 - pos1 >= 80 ) this.prev();
+			if ( pos1 > pos2 && pos1 - pos2 >= 80 ) this.next();
+
+		}
+
+	}
+
+
+	wheelScroll(e){
+		if ( e.deltaY > 0 ) this.prev();
+		if ( e.deltaY < 0 ) this.next();
 	}
 
 	createControls(){
@@ -207,61 +276,17 @@ class Slider{
 	}
 
 
-	addMouseSlide(){
-		this.mousePosition = {};
-		this.mousePosition.pos1 = 0;
-		this.mousePosition.pos2 = 0;
-
-		this.slider.addEventListener('mousedown', setMousePositionStart.bind(this) );
-		this.slider.addEventListener('mouseup', setMousePositionEnd.bind(this) );
-		this.slider.addEventListener('touchstart', setMousePositionStart.bind(this) );
-		this.slider.addEventListener('touchend', setMousePositionEnd.bind(this) );
-
-		let children = Array.from( this.slider.children ); // отменяем drag событие
-		children.forEach( elem =>{
-			elem.ondragstart = e => false
-		})
-
-		function setMousePositionStart(event){
-			let e = event.clientX ? event : event.changedTouches[0];
-
-			if ( this.timeline ) this.mousePosition.pos1 = e.clientY;
-			else this.mousePosition.pos1 = e.clientX;
-		}
-
-		function setMousePositionEnd(event){
-			let e = event.clientX ? event : event.changedTouches[0];
-
-			if ( this.timeline ) this.mousePosition.pos2 = e.clientY;
-			else this.mousePosition.pos2 = e.clientX;
-
-			selectDirection.bind(this)();
-		}
-
-		function selectDirection(){
-			let pos1 = this.mousePosition.pos1;
-			let pos2 = this.mousePosition.pos2; 
-			if ( pos2 > pos1 && pos2 - pos1 >= 80 ) this.prev();
-			if ( pos1 > pos2 && pos1 - pos2 >= 80 ) this.next();
-		}
-
-
-	}
-
-	wheelScroll(e){
-		if ( e.deltaY > 0 ) this.prev();
-		if ( e.deltaY < 0 ) this.next();
-	}
 
 }
+
 
 
 
 //FadeOutSlider
 
 class FadeOutSlider extends Slider{
-	constructor(obj){
-		super(obj);
+	constructor(elem, obj){
+		super(elem, obj);
 	}
 
 	prev(e){
@@ -309,53 +334,63 @@ class FadeOutSlider extends Slider{
 
 
 
+
 // SlideSlider
 
 class SlideSlider extends Slider{
-	constructor(obj){
-		super(obj);
+	constructor(elem, obj){
+		super(elem, obj);
 		this.slideShowCount = obj.slideShowCount ? obj.slideShowCount : 1;
-		this.focusCenter    = obj.focusCenter ? obj.focusCenter : false;
+		this.alignCenter    = obj.alignCenter ? obj.alignCenter : false;
 
 		this.transform = 0;
 
 		this.adaptiveConfig = obj.adaptiveConfig ? obj.adaptiveConfig : false;
 	}
 
+
+
 	prev(e){
 		if (e) e.preventDefault();
 
 		if ( this.infinite == false ) {
-			let breakFunc = this.noInfinite('prev');
-			if ( breakFunc ) return;
+			let isBreak = this.noInfinite('prev');
+			if ( isBreak ) return;
 		}
 
 		this.activeIndex--;
 		if ( this.activeIndex < 0 ) this.activeIndex = this.slides.length - 1;
 
-		let centerIndex = this.slides.length -  Math.round( this.slideShowCount / 2 )
+		let centerIndex = this.slides.length - Math.round( this.slideShowCount / 2 )
 
 
 		// base slide
+
 		if ( this.transform != 0 && this.timeline == false ){
-			if ( this.focusCenter && this.activeIndex >=centerIndex ) {
+
+			if ( this.alignCenter && this.activeIndex >=centerIndex ) {
 				// ничего не делаем
 			}else{
 				this.transform -= this.slides[0].offsetWidth;
 				this.slidesWrap.style.transform = `translateX(${-this.transform}px)`;
 			}
+
 		}
 
 		if ( this.transform != 0 && this.timeline ) {
-			if ( this.focusCenter && this.activeIndex >= centerIndex  ) {
+
+			if ( this.alignCenter && this.activeIndex >= centerIndex  ) {
 				// ничего не делаем
 			}else{
 				this.transform -= this.slides[0].offsetHeight;
 				this.slidesWrap.style.transform = `translateY(${-this.transform}px)`;
 			}
+
 		}
 
+
 		// переход на последний слайд
+
 		if ( this.transform == 0 && this.activeIndex == this.slides.length - 1 ) {
 			let slideCount = this.activeIndex;
 			this.activeIndex = 0;
@@ -368,13 +403,12 @@ class SlideSlider extends Slider{
 	}
 
 
-
 	next(e){
 		if(e) e.preventDefault();
 
 		if ( this.infinite == false ) {
-			let breakFunc = this.noInfinite('next');
-			if ( breakFunc ) return;
+			let isBreak = this.noInfinite('next');
+			if ( isBreak ) return;
 		}
 
 		this.activeIndex++;
@@ -386,26 +420,33 @@ class SlideSlider extends Slider{
 
 
 		// base slide
+
 		if ( this.transform < maxBaseTransform && this.timeline == false ){ //Timeline False
-			if ( this.focusCenter && this.activeIndex < centerIndex ){
+
+			if ( this.alignCenter && this.activeIndex < centerIndex ){
 				// ничего не делаем
 			}else{
 				this.transform += this.slides[0].offsetWidth;
 				this.slidesWrap.style.transform = `translateX(${-this.transform}px)`;
 			}
+
 		}
 
+
 		if ( this.transform < maxTimelineTransform && this.timeline ){ //Timeline True
-			if ( this.focusCenter && this.activeIndex < centerIndex ) {
+
+			if ( this.alignCenter && this.activeIndex < centerIndex ) {
 				// ничего не делаем
 			}else{
 				this.transform += this.slides[0].offsetHeight;
 				this.slidesWrap.style.transform = `translateY(${-this.transform}px)`;
 			}
+
 		}
 
 
 		// переход на первый слайд
+
 		if ( this.transform >= maxBaseTransform && this.timeline == false && this.activeIndex == 0 ){
 			this.activeIndex = this.slides.length - 1;
 			let slideCount = this.activeIndex;
@@ -429,7 +470,8 @@ class SlideSlider extends Slider{
 
 	dotsInit(){
 		this.controlsWrap.dots.forEach( (elem, index)=>{
-			elem.addEventListener('click', (e)=>{
+
+			elem.addEventListener('click', e => {
 				e.preventDefault();
 				let slideCount = 0;
 
@@ -448,6 +490,7 @@ class SlideSlider extends Slider{
 				if ( this.infinite == false && this.controls ) this.checkDisable(this.activeIndex);
 				if ( this.autoSlide ) this.resetAutoShow();
 			})
+
 		});
 	}
 

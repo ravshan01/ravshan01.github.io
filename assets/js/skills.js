@@ -1,9 +1,14 @@
 let $h1 = document.querySelector('h1');
 createAnimateText($h1)
 
-const slider = createSlider({
+	
+let $slider = document.querySelector('.slider');
+
+const slider = createSlider($slider, {
+	slide: true,
 	autoSlide: true,
-	duration: 4000
+		duration: 4000,
+	infinite: false
 });
 
 // window.addEventListener('click', e => console.log(e))
