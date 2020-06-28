@@ -29,6 +29,22 @@
 }
 
 
+
+.preloader-wrap{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #000;
+	z-index: 99999;
+}
+.banter-loader__box::before{
+	background: #09FDD9;
+}
+
+
+
 @-webkit-keyframes text-animate{
 	50%{
 		-webkit-transform: translateY(-20%) scale(1.1);
