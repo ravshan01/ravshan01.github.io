@@ -144,6 +144,7 @@ function game(e){
 		colorActive = this.colorActive;
 		colorActiveName = this.colorActiveName;
 	}else{
+
 		let obj = this.expressionCreate();
 		expression = obj.expression;
 		sum        = obj.sum;
@@ -157,7 +158,9 @@ function game(e){
 		this.colors          = colors;
 		this.colorActive     = colorActive;
 		this.colorActiveName = colorActiveName;
+
 	}
+
 
 	if ( this.modes == 'turbo' ){
 		this.$turboColor.innerText = colorActiveName;
@@ -166,6 +169,7 @@ function game(e){
 
 		setTimeout( () => this.$turboColor.classList.remove('visible') , this.speed)
 	}
+
 
 	for (let i = 0; i < expression.length; i++ ) setTimeout( () => {
 		let color = colors[i]
@@ -183,6 +187,7 @@ function game(e){
 	}, this.speed * expression.length )
 
 }
+
 
 
 function expressionCreate(){
@@ -365,7 +370,7 @@ function randomNum(operation, sum){ // operation, sum для примеров н
 
 function randomColor(){
 	let colors = ['red', 'lime', 'magenta', 'blue'];
-	let colorsName = ['красный', 'зелёный', 'розовый', 'голубой'];
+	let colorsName = ['красный', 'зелёный', 'розовый', 'синий'];
 	let responseColors = [];
 	let responseColorsName = [];
 
@@ -516,10 +521,7 @@ function createEventListener(){
 			thisPlayer.$home.classList.remove('hide');
 		})
 
-		$navLinks.forEach(elem => elem.addEventListener('click', e =>{
-			e.preventDefault();
-			elem.nextElementSibling.classList.toggle('visible');
-		}) );
+		$navLinks.forEach(elem => elem.addEventListener('click', e => e.preventDefault()) );
 
 		for(let elem in thisPlayer.$settings) thisPlayer.$settings[elem].forEach( elem => elem.addEventListener('click', settingActive) )
 	}
