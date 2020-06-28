@@ -282,22 +282,17 @@ canvas{
 
 
 .saved{
-	visibility: hidden;
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #000;
-	text-shadow: 0 2px 3px #fff;
+	top: 50%;
+	left: 50%;
+
+
+	color: #09FDD9;
+	text-shadow: 0 0px 3px #000;
 	font-size: 5rem;
 	font-weight: bold;
+	transform: translate(-50%, -50%);
+	visibility: hidden;
 }
 
 @media (max-width: 480px){
