@@ -11,8 +11,6 @@ const slider = createSlider($slider, {
 	infinite: false
 });
 
-// window.addEventListener('click', e => console.log(e))
-
 
 class Cube{
 	constructor(obj){
