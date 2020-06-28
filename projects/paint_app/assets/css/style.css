@@ -301,10 +301,16 @@ canvas{
 }
 
 @media (max-width: 480px){
+
 	.controls > a span{
 		display: none;
 	}
 	.controls > a i{
 		display: block!important;
 	}
+
+	.saved{
+		font-size: 3rem;
+	}
+	
 }
