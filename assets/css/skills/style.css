@@ -136,12 +136,14 @@ p.footer {
   -o-object-fit: cover;
   object-fit: cover; }
 
+/*--- Conrols and Dots ---*/
 .controls-wrap, .controls-wrap > * {
   z-index: 99; }
 
 .next, .prev {
   position: absolute;
   padding: 5px;
+  color: inherit;
   font-size: 2em;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -171,8 +173,8 @@ p.footer {
   width: 25px;
   height: 25px;
   margin-right: 8px;
-  background: #bbb;
-  border: 1px solid #111;
+  background: #fff;
+  border: 1px solid #000;
   border-radius: 50%;
   -webkit-transition: .4s;
   transition: .4s; }
@@ -181,8 +183,8 @@ p.footer {
   margin-right: 0; }
 
 a.dots-active {
-  background: #fff;
-  border-color: #000; }
+  background: #000;
+  border-color: #fff; }
 
 .disable {
   opacity: .3; }

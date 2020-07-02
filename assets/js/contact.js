@@ -5,7 +5,6 @@ let $contactLinks = document.querySelectorAll('.contact-links a');
 let $contactText  = document.querySelector('.contact-text');
 
 $contactLinks.forEach( elem => elem.addEventListener('click', contactLinkClick) );
-// $contactText.addEventListener('mousedown', () => retu)
 
 
 function contactLinkClick(e){
