@@ -6,10 +6,12 @@ let $slider = document.querySelector('.slider');
 
 const slider = createSlider($slider, {
 	slide: true,
-	autoSlide: true,
-		duration: 4000,
 	infinite: false
 });
+
+
+
+
 
 
 class Cube{
