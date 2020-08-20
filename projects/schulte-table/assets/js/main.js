@@ -28,7 +28,6 @@ window.onload = () =>{
 	})
 
 	app.init();
-	console.log(app)
 
 	window.addEventListener('resize', app.changeTableSize.bind(app));
 

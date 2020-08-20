@@ -103,7 +103,7 @@ class App{
 		this.table.$win.classList.add('visible');
 		this.table.$winTime.innerText = this.table.time;
 
-		setTimeout( () => this.table.$win.classList.remove('visible'), 3500 );
+		setTimeout( () => this.table.$win.classList.remove('visible'), 2500 );
 
 		this.reInit();
 	}
@@ -277,6 +277,7 @@ class App{
 		return numbers;
 	}
 
+
 	changeTableClass(){
 		let table = this.table.$table;
 		table.classList.value = '';
@@ -286,27 +287,49 @@ class App{
 		table.classList.add('grid-row-' + this.config.rowCount);
 	}
 
+
 	toggleShowSettings(e){
 		if (e) e.preventDefault();
 		this.settings.$settings.classList.toggle('translate-0');
 	}
 
-	changeTheme(e){
-		let theme;
-		if (!e) theme = this.config.theme;
 
-		if (e){
+	changeTheme(e){
+
+		let imagesUrl = {
+			'bg-blue'  : './assets/images/bg-blue.png',
+			'bg-green' : './assets/images/bg-green.png',
+			'bg-pink'  : './assets/images/bg-pink.png'
+		}
+
+		let theme  = '';
+		let $icon  = false;
+
+
+		if ( !e ) theme = this.config.theme;
+
+		if ( e ){
+
 			let $theme = e.target;
-			theme = $theme.dataset.value;
+			theme      = $theme.dataset.value;
 			this.config.theme = theme;
+
+			$icon = $theme.querySelector('i');
+			$icon.style.visibility = 'visible';
 
 			let $themeActive = document.querySelector('.theme-active');
 			$themeActive.classList.remove('theme-active');
 			$theme.classList.add('theme-active');
+
 		}
 
-		document.body.classList.value = '';
-		document.body.classList.add(theme);
+		let image = new Image();
+		image.src = imagesUrl[theme];
+		image.onload = () => {
+			document.body.style.backgroundImage = `url(${image.src})`, 2000;
+			if ( $icon ) $icon.style.visibility = 'hidden';
+		}
+
 	}
 
 

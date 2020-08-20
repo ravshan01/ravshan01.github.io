@@ -51,6 +51,7 @@
 
 .info-link{
 	position: relative;
+
 	color: #fff;
 	text-align: right;
 	font-size: 1.3em;
@@ -63,8 +64,8 @@
 	right: 0;
 	width: 100%;
 	padding: 20px 30px 20px 20px;
-	background: #002;
 
+	background: #002;
 	font-size: .9em;
 	text-align: left;
 	border-radius: 15px;
@@ -131,15 +132,19 @@
 }
 
 .theme{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 60px;
 	height: 60px;
 	margin-right: 20px;
 
+	font-size: 20px;
 	border-radius: 50%;
 	transition: .4s;
 }
 .theme:last-child{
-	margin-right: 0;
+	margin-right: 0!important;
 }
 .theme:not(.theme-active):hover{
 	transform: translateY(-10px);
@@ -147,6 +152,11 @@
 
 .theme-active{
 	transform: scale(1.3);
+}
+
+.theme i{
+	text-shadow: 0 0 2px #000a;
+	visibility: hidden;
 }
 
 
@@ -162,6 +172,7 @@
 	.theme{
 		width: 45px;
 		height: 45px;
+		margin-right: 12px;
 	}
 
 	.columns a:nth-child(1n+5),
