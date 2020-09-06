@@ -3,6 +3,8 @@ window.addEventListener('load', ()=>{
 const $preloader = document.querySelector('.preloader-wrap');
 const $headerWrap = document.querySelector('.header-wrap'); 
 
+
+
 fetch('./file-assets/header.html')
 .then( response => response.text() )
 .then( html => $headerWrap.innerHTML = html)
@@ -22,8 +24,10 @@ fetch('./file-assets/header.html')
 
 	$links.forEach( elem =>{
 		if ( window.location.href == elem.href ){
+
 			elem.classList.add('menu-link-active');
 			isMenuLink = true;
+
 		}
 	});
 	if ( isMenuLink == false ) $links[0].classList.add('menu-link-active');
@@ -33,13 +37,23 @@ fetch('./file-assets/header.html')
 	// mobile menu
 
 	const $settingsLink = document.querySelector('.settings-link');
-	const $header      = document.querySelector('header');
+	const $header       = document.querySelector('header');
 
 	$settingsLink.addEventListener('click', e => {
 		e.preventDefault();
+
 		$header.classList.toggle('translate-0');
 		$settingsLink.classList.toggle('settings-link-close');
 	})
+
+
+
+
+
+	let currentYear = document.querySelector('.current-year');
+	let year = new Date().getFullYear();
+	currentYear.innerText = year
+
 
 
 	})

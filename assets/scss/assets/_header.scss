@@ -32,20 +32,25 @@ header.translate-0{
 }
 
 .settings-link{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	position: fixed;
 	top: 7px;
 	right: 7px;
-	width: 35px;
-	height: 35px;
+	width: 1.6em;
+	height: 1.6em;
 	
 	color: #fff;
 	text-align: center;
 	font-size: 1.3em;
-	line-height: 35px;
 
-	border: 1px solid #fff;
+	border: 2px solid #fff;
 	visibility: hidden;
 	z-index: 999;
+}
+.settings-link-close{
+	border-radius: 50%;
 }
 .settings-link-close i::before{
 	content: '\f00d';
