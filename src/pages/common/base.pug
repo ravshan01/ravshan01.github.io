@@ -1,0 +1,42 @@
+doctype html
+html(lang='ru_RU')
+	head
+
+		meta(charset='UTF-8')
+		meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+		meta(http-equiv='X-UA-Compatible' content='IE=Edge')
+
+		title Portfolio
+		meta(name='description' content='Ravshan Selimov Portfolio')
+		meta(name='Author' content='_blank, Selimov Ravshan')
+		meta(name='Copyright' content='Selimov Ravshan')
+
+		link(rel='icon' href='/favicon.ico')
+		link(rel='icon' href='/favicon.png')
+		link(rel='apple-touch-icon' href='/favicon.png')
+
+
+		link(rel='stylesheet' href='/assets/css/assets/reset.css')
+		link(rel='stylesheet' href='/assets/css/assets/preloader.css')
+		link(rel='stylesheet' href='/assets/font-awesome/css/font-awesome.min.css')
+		block styles
+
+		script(src='/assets/js/assets/createAnimateText.js')
+		script(src='/assets/js/main.js')
+		block scripts
+
+	body
+
+		include preloader.pug
+		.header_footer
+			include header.pug
+			include footer.pug
+
+
+		.wrap
+			<div class="body-start-text code">  &ltbody&gt</div>
+
+			main
+				block content
+
+			<div class="body-end-text code">  &lt/body&gt<br>&lt/html&gt</div>
