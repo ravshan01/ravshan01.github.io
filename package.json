@@ -20,6 +20,7 @@
   "homepage": "https://github.com/ravshan01/ravshan01.github.io#readme",
   "devDependencies": {
     "browser-sync": "^2.26.12",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean-css": "^4.3.0",
