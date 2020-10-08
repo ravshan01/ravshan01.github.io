@@ -6,8 +6,8 @@ html(lang='ru_RU')
 		meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
 		meta(http-equiv='X-UA-Compatible' content='IE=Edge')
 
-		title Portfolio
-		meta(name='description' content='Ravshan Selimov Portfolio')
+		title title
+		meta(name='description' content='description')
 		meta(name='Author' content='_blank, Selimov Ravshan')
 		meta(name='Copyright' content='Selimov Ravshan')
 
@@ -17,7 +17,6 @@ html(lang='ru_RU')
 
 
 		link(rel='stylesheet' href='/assets/css/assets/reset.css')
-		link(rel='stylesheet' href='/assets/css/assets/preloader.css')
 		link(rel='stylesheet' href='/assets/font-awesome/css/font-awesome.min.css')
 		block styles
 
@@ -27,10 +26,10 @@ html(lang='ru_RU')
 
 	body
 
-		include preloader.pug
+		include ./preloader.pug
 		.header_footer
-			include header.pug
-			include footer.pug
+			include ./header.pug
+			include ./footer.pug
 
 
 		.wrap
