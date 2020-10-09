@@ -1,0 +1,33 @@
+@import './includes/_variable.scss';
+@import './includes/_header.scss';
+@import './includes/_main.scss';
+
+.main{
+	flex-wrap: wrap-reverse;
+}
+
+.img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: .8;
+}
+.img img{
+	display: block;
+	width: 100%;
+	min-width: 320px;
+	max-width: 860px;
+	height: 100%;
+	max-height: 560px;
+}
+
+
+@media (max-width: 960px){
+	.img{
+		margin-bottom: 30px;
+	}
+	.img img{
+		width: 60%;
+		max-height: 420px;
+	}
+}

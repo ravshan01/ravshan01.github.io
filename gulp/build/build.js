@@ -1,7 +1,7 @@
 let gulp, {series, parallel} = require('gulp');
-let pug2html = require('./includes/pug2html.js');
-let css  = require('./includes/css.js');
-let js   = require('./includes/js.js');
+let pug2html = require('../common/pug2html.js');
+let css  = require('../common/css.js');
+let js   = require('../common/js.js');
 
 
 
