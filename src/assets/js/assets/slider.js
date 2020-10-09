@@ -5,6 +5,7 @@ function createSlider(elem, obj){
 		slider.init();
 		return slider;
 	}
+	
 	let slider = new FadeOutSlider(elem, obj);
 	slider.init();
 	return slider;

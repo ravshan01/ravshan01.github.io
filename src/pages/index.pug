@@ -1,8 +1,14 @@
 extends ./common/base.pug
 
 
+- var title = 'Home';
+- var description = 'Ravshan Selimov Portfolio';
+
 append styles
 	link(rel="stylesheet" href="/assets/css/index.css")
+append scripts
+	scripts(src="/assets/js/index.js")
+
 
 block content
 	div content_test

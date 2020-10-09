@@ -84,8 +84,8 @@ header.translate-0{
 .nav li>a:not(.active):hover{
 	background: linear-gradient(#323a3d, #222a2d);
 }
-.menu-link-active{
-	background: $blue!important;
+.active-link{
+	background: $baseColor!important;
 	color: #000!important;
 	/* text-shadow: 0px 0px 5px #000;*/
 	transform: scaleX(1.03) scaleY(1.1);

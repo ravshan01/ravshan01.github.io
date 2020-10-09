@@ -1,4 +1,4 @@
-function createAnimateText(domElem, wrap=false){
+function createAnimateText(domElem, wrap = false){
 	
 	let $elem  = domElem;
 	let text   = $elem.dataset.text;
@@ -11,6 +11,7 @@ function createAnimateText(domElem, wrap=false){
 			createEventListener($span);
 			$elem.append($span)
 		}
+
 
 		if ( index != arr.length - 1 ){
 			let $comma = createSpan(',');
@@ -25,12 +26,14 @@ function createAnimateText(domElem, wrap=false){
 
 }
 
+
 function createSpan(char){
 	let $span = document.createElement('span');
 	$span.innerText = char;
 
 	return $span;
 }
+
 
 function createEventListener($dom){
 	$dom.addEventListener('mouseover', function(){
