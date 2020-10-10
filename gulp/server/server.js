@@ -7,33 +7,31 @@ const scss2css = require('../common/scss2css.js');
 const js  = require('../common/js.js');
 
 
+async function server(){
+	series(
 
+		parallel(
+			() => {
+				return src([ 'src/**/*', '!src/**/*.pug', '!src/**/*.scss', '!src/**/*.js' ])
+				.pipe( dest('static/') )
+			},
 
-async function startServer(){
-	src([ 'src/**/*', '!src/**/*.pug', '!src/**/*.scss', '!src/**/*.js' ])
-	.pipe( dest('static/') )
+			() => pug2html('static/'),
+			() => scss2css('static/assets/css/', true, browserSync), // browserSync передаю иначе будет в null
+			() => js('static/')
+		),
 
-	pug2html('static/');
-	scss2css('static/assets/css/', true, browserSync);
-	js('static/');
-
-
-	watcher() 
-	browserSyncStart()
+		startServer
+	)()
 }
 
 
 
-async function watcher(){
+async function startServer(){
 
 	watch('src/pages/**/*.pug', () => pug2html('static/', true, browserSync)) // DevMode = true
 	watch('src/assets/**/*.scss', () => scss2css('static/assets/css/', true, browserSync)) // DevMode = true
 	watch('src/**/*.js',  () => js('static/', true, browserSync))  // DevMode = true
-
-}
-
-
-async function browserSyncStart(){
 
 	browserSync.init({
 		server : {
@@ -44,4 +42,4 @@ async function browserSyncStart(){
 
 
 
-module.exports = startServer;
+module.exports = server;
