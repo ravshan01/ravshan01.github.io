@@ -1,8 +1,9 @@
 extends ./common/base.pug
 
+block variables
+	- var title = 'Home';
+	- var description = 'Ravshan Selimov Portfolio';
 
-- var title = 'Home';
-- var description = 'Ravshan Selimov Portfolio';
 
 append styles
 	link(rel="stylesheet" href="/assets/css/index.css")
@@ -10,5 +11,9 @@ append scripts
 	scripts(src="/assets/js/index.js")
 
 
+
 block content
-	div content_test
+	div content
+
+
+

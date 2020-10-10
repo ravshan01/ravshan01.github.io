@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+window.addEventListener('load', () => { 
 	window.addEventListener('mousedown', e => e.preventDefault());
 
 	document.querySelector('.preloader').classList.style.display = 'none'; 
