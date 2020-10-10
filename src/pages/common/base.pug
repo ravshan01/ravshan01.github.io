@@ -8,7 +8,7 @@ html(lang='ru_RU')
 		meta(http-equiv='X-UA-Compatible' content='IE=Edge')
 
 		title #{title}
-		meta(name='description' content='${decription}')
+		meta(name='description' content=`${description}`)
 		meta(name='Author' content='_blank, Selimov Ravshan')
 		meta(name='Copyright' content='Selimov Ravshan')
 
@@ -19,6 +19,7 @@ html(lang='ru_RU')
 
 		link(rel='stylesheet' href='/assets/css/assets/reset.css')
 		link(rel='stylesheet' href='/assets/font-awesome/css/font-awesome.min.css')
+		link(rel='stylesheet' href='/assets/css/assets/preloader.css')
 		block styles
 
 		script(src='/assets/js/assets/createAnimateText.js')
@@ -36,7 +37,7 @@ html(lang='ru_RU')
 		.wrap
 			<div class="body-start-text code">  &ltbody&gt</div>
 
-			main
+			main.content
 				block content
 
 			<div class="body-end-text code">  &lt/body&gt<br>&lt/html&gt</div>

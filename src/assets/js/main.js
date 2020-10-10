@@ -1,22 +1,22 @@
 window.addEventListener('load', () => { 
 	window.addEventListener('mousedown', e => e.preventDefault());
 
-	document.querySelector('.preloader').classList.style.display = 'none'; 
+	document.querySelector('.preloader').style.display = 'none'; 
 
 
 
-	// ---------- Navigation ----------
-
+	// ***** Navigation *****
+	
 	const navLinks = document.querySelectorAll('nav a');
-	navLinks[0].classList.add('active-link');
+	navLinks[0].classList.add('active');
 
 	for (let i = 0; i < navLinks.length; i++){
-		if ( window.location.href === navLinks[i] )	navLinks.classList.add('active-link')
+		if ( window.location.href === navLinks[i] )	navLinks.classList.add('active')
 	}
 
 
 	
-	// ---------- Toggle Menu ----------
+	// ***** Toggle Menu *****
 
 	const toglleMenuLink = document.querySelector('.toggle-menu-link');
 	const header = document.querySelector('header');
@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
 
 
 
-	// ---------- Footer ----------
+	// ***** Footer *****
 
 	const year = document.querySelector('.current-year');
 	year.innerText = new Date().getFullYear();

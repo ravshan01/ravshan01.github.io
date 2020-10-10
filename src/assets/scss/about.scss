@@ -1,7 +1,9 @@
-@import './includes/_variable.scss';
+@import './includes/_variables.scss';
+@import './includes/_util.scss';
+@import './includes/_text-animate.scss';
+@import './includes/_preloader.scss';
 @import './includes/_header_footer.scss';
 @import './includes/_main.scss';
-@import './includes/_slider.scss';
 
 
 .main{

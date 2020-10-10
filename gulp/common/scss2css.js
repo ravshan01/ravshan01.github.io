@@ -16,10 +16,10 @@ async function scss2css(destPath, devMode = false, server = null){
 			.pipe( plumber() )
 			.pipe( sourcemaps.init() )
 			.pipe( sass() )
-			.pipe( autoprefixer({
-				'overrideBrowserslist' : ['last 3 versions'],
-				'cascade' : false
-			}) )
+			// .pipe( autoprefixer({
+			// 	'overrideBrowserslist' : ['last 3 versions'],
+			// 	'cascade' : false
+			// }) )
 			.pipe( sourcemaps.write() )
 			.pipe( plumber.stop() )
 			.pipe( dest(destPath) )
