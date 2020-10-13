@@ -6,35 +6,26 @@
 @import './includes/_main.scss';
 
 
-.main{
-	flex-wrap: wrap-reverse;
-}
-
-.about-text{
-	margin-top: 30px;
-	padding-left: 1em;
-}
 .content{
-	width: 40%;
-}
-
-.main{
+	flex-flow: row wrap-reverse;
 	perspective: 1000px;
 }
 
 
-
-@keyframes piramid-rotate{
-	25%{
-		transform: rotateX(-50deg) rotateY(-360deg);
-	}
-	55%{
-		transform: rotateX(0deg) rotateY(-60deg);
-	}
-	80%{
-		transform: rotateX(70deg) rotateY(150deg);
-	}
+main{
+	display: flex;
+	align-items: center;
 }
+
+.about-text{
+	display: flex;
+	flex-direction: column;
+
+	margin-top: 30px;
+	padding-left: 1em;
+}
+
+
 
 
 .piramid{
@@ -140,6 +131,17 @@
 	height: 80%;
 }
 
+@keyframes piramid-rotate{
+	25%{
+		transform: rotateX(-50deg) rotateY(-360deg);
+	}
+	55%{
+		transform: rotateX(0deg) rotateY(-60deg);
+	}
+	80%{
+		transform: rotateX(70deg) rotateY(150deg);
+	}
+}
 
 
 
