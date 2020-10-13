@@ -8,12 +8,17 @@ block variables
 append styles
 	link(rel="stylesheet" href="/assets/css/index.css")
 append scripts
-	scripts(src="/assets/js/index.js")
+	script(src="/assets/js/index.js" defer)
 
 
 
 block content
-	div content
+	.text
+		<span class="code">&lth1&gt</span>
+		h1.pre(data-text="Hi,I'm Ravshan,web developer")
+		<span class="code">&lt/h1&gt</span>
 
+		a.button(href="about.html") About Me
 
+	img(src="assets/images/logo-medium.png" alt="logo")
 

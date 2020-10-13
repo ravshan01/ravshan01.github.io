@@ -17,14 +17,14 @@ html(lang='ru_RU')
 		link(rel='apple-touch-icon' href='/favicon.png')
 
 
-		link(rel='stylesheet' href='/assets/css/assets/reset.css')
-		link(rel='stylesheet' href='/assets/font-awesome/css/font-awesome.min.css')
-		link(rel='stylesheet' href='/assets/css/assets/preloader.css')
 		block styles
+			link(rel='stylesheet' href='/assets/css/assets/reset.css')
+			link(rel='stylesheet' href='/assets/font-awesome/css/font-awesome.min.css')
+			link(rel='stylesheet' href='/assets/css/assets/preloader.css')
 
-		script(src='/assets/js/assets/createAnimateText.js')
-		script(src='/assets/js/main.js')
 		block scripts
+			script(src='/assets/js/assets/createAnimateText.js' defer)
+			script(src='/assets/js/main.js' defer)
 
 	body
 
@@ -35,7 +35,7 @@ html(lang='ru_RU')
 		.wrap
 			<div class="body-start-text code">  &ltbody&gt</div>
 
-			main.content
+			main
 				block content
 
 			<div class="body-end-text code">  &lt/body&gt<br>&lt/html&gt</div>
