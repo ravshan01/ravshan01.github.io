@@ -1,5 +1,4 @@
-const h1 = document.querySelector('h1');
-createAnimateText(h1, true);
+createAnimateText( document.querySelector('h1') );
 
 
 const slider = createSlider(document.querySelector('.slider'), {

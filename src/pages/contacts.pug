@@ -1,6 +1,5 @@
 extends ./common/base.pug
 
-
 block variables
 	- var title = 'Contacts';
 	- var description = 'Ravshan selimov Portfolio, contacts';
@@ -8,3 +7,29 @@ block variables
 
 append styles
 	link(rel="stylesheet" href="/assets/css/contacts.css")
+append scripts
+	script(src="/assets/js/contacts.js" defer)
+
+
+
+block content
+	main
+		.text
+			<span class="code">&lth1&gt</span>
+			h1.pre(data-text="Contact Me")
+			<span class="code">&lt/h1&gt</span>
+
+
+		.contacts-wrap
+			.contacts-links
+
+				a.button(href="#" data-text="+998 (88) 541 85 75" title="phone")
+					i(class="fa fa-phone")
+				a.button(href="https://t.me/RavshanSelimov" data-text="https://t.me/RavshanSelimov" title="telegram")
+					i(class="fa fa-send")
+				a.button(href="#" data-text="ravshanselimov1@gmail.com" title="gmail")
+					i(class="fa fa-google")
+				a.button(href="https://github.com/ravshan01" data-text="https://github.com/ravshan01" title="guthib") 
+					i(class="fa fa-github-alt")
+	      
+			a.contacts-text(href="#" target="_blank")

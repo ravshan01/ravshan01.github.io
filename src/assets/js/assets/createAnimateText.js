@@ -1,4 +1,4 @@
-function createAnimateText(domElem, wrap = false){
+function createAnimateText(domElem, wrap = false){ // wrap - перенос текста(если есть запятые переносит на след. строку)
 	
 	let $elem  = domElem;
 	let text   = $elem.dataset.text;
