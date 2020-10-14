@@ -3,6 +3,7 @@
 @import './includes/_text-animate.scss';
 @import './includes/_preloader.scss';
 @import './includes/_header_footer.scss';
+@import './includes/_slider.scss';
 @import './includes/_main.scss';
 
 
@@ -96,7 +97,6 @@ main{
 
 
 .slider{
-	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -124,12 +124,12 @@ main{
 }
 
 .slide img{
-	top: 50%;
-	left: 50%;
 	width: auto;
-	max-width: 90%;
-	height: 80%;
+	max-width: 80%;
+	height: auto;
+	max-height: 70%
 }
+
 
 @keyframes piramid-rotate{
 	25%{
@@ -145,22 +145,26 @@ main{
 
 
 
+
 @media (max-width: 960px){
+
 	.piramid{
 		margin-top: 40px;
 		margin-bottom: 100px;
 	}
+
 }
 
 
-@media (max-width: $mobWidth){
+@media (max-width: $mobWidth + 100){
 
+	.about-text{
+		margin-right: 1em;
+	}
 	.piramid{
 		display: none;
 	}
-	.slider{
-		display: block;
-	}
+
 }
 
 @media (max-width: 480px){

@@ -1,5 +1,6 @@
 let gulp, {src, pipe, dest, watch, series, parallel} = require('gulp');
 const browserSync = require('browser-sync').create();
+const del = require('del');
 
 const pug2html = require('../common/pug2html.js');
 const images   = require('../common/images.js');
@@ -10,6 +11,7 @@ const js  = require('../common/js.js');
 
 async function server(){
 	series(
+		() => del('static/'),
 
 		parallel(
 			() => {	
