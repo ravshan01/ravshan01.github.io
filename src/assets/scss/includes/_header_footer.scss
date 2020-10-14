@@ -29,14 +29,15 @@
 	position: fixed;
 	top: 7px;
 	right: 7px;
-	width: 1.6em;
-	height: 1.6em;
+	width: 1.8em;
+	height: 1.8em;
 
 	color: #fff;
-	text-align: center;
-	font-size: 1.3em;
+	font-size: 1.2em;
 
 	border: 2px solid #fff;
+	border-radius: 5px;
+	transition: .15s linear;
 	visibility: hidden;
 	z-index: 999;
 }
@@ -44,10 +45,10 @@
 	cursor: pointer;
 }
 .toggle-menu-link-close{
-	border-radius: 50%;
+	border-color: transparent;
 }
 .toggle-menu-link-close i::before{
-	content: '\f00d';
+	content: '\f00d'; // close
 }
 
 
