@@ -22,10 +22,10 @@ async function server(){
 					.pipe( dest('static/') )
 			},
 
-			() => images('static/'),
 			() => pug2html('static/'),
-			() => scss2css('static/assets/css/', true, browserSync), // browserSync передаю иначе будет в null
-			() => js('static/')
+			() => scss2css('static/assets/css/', true, browserSync), // иначе не будет создана sourcemap
+			() => js('static/'),
+			() => images('static/', true, browserSync)
 		),
 
 		startServer
@@ -37,7 +37,8 @@ async function server(){
 async function startServer(){
 
 	watch('src/**/*.html', () => browserSync.reload() );
-	watch([ 'src/**/*.jpg', 'src/**/*.png', 'src/**/*.ico' ], () => images('static/', true, browserSync) )
+	watch('src/**/*.css',  () => src('src/**/*.css').pipe( dest('static/') ).pipe( browserSync.stream() ) );
+	watch([ 'src/**/*.jpg', 'src/**/*.png', 'src/**/*.svg', 'src/**/*.ico' ], () => images('static/', true, browserSync) )
 
 	watch('src/pages/**/*.pug', () => pug2html('static/', true, browserSync)) // DevMode = true
 	watch('src/assets/**/*.scss', () => scss2css('static/assets/css/', true, browserSync)) // DevMode = true
