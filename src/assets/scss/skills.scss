@@ -1,15 +1,33 @@
 @import './includes/_variables.scss';
 @import './includes/_util.scss';
 @import './includes/_text-animate.scss';
+@import './includes/_slider.scss';
 @import './includes/_preloader.scss';
 @import './includes/_header_footer.scss';
 @import './includes/_main.scss';
 
 
-.main{
+main{
+	display: flex;
 	flex-direction: column;
-	perspective: 1000px;
 	padding-top: 25px;
+}
+
+.text{
+	align-self: center;
+}
+
+
+
+.cube-wrap{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 140px 0;
+	margin-bottom: 20px;
+
+	perspective: 1000px;
 }
 
 .cube-info{
@@ -22,21 +40,14 @@
 
 	font-size: 1.4em;
 	text-align: center;
-
 	text-shadow: 2px 2px  #000;
 }
 
-.cube-wrap{
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	padding: 140px 0;
-	margin-bottom: 20px;
-}
 .cube{
 	position: relative;
 	width: 260px;
 	height: 260px;
+
 	transform-style: preserve-3d;
 	transform: rotateX(-30deg) rotateY(30deg);
 }
@@ -54,13 +65,14 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
+
 	background: #000;
 	transform-style: preserve-3d;
 }
 
 .cube div img{
-	width: 80%;
-	height: 80%;
+	width: 70%;
+	height: 70%;
 	transition: .4s;
 }
 .cube div:hover img{
@@ -93,15 +105,17 @@
 
 
 
+
 .slider{
 	margin: 20px 0;
 	height: 500px;
 }
 .slider-header{
 	display: block;
+	color: #fff;
+
 	text-align: center;
 	font-size: 2em;
-	color: #fff;
 }
 
 .slide{
@@ -110,11 +124,11 @@
 	justify-content: center;
 	align-items: center;
 }
-
 .slide img{
 	width: auto;
 	max-width: 95%;
 	height: 70%;
+
 	z-index: -1;
 	object-fit: cover;
 }
@@ -130,29 +144,35 @@
 
 
 @media (max-width: 960px){
+
 	.slide img{
 		height: 60%;
 	}
 	.slide{
 		transform: translateX(-1.5%);
 	}
+
 }
 
 @media (max-width: $mobWidth){
+
 	.cube-wrap{
 		display: none;
 	}
 	.slider{
 		height: 400px
 	}
+
 }
 
 
 @media (max-width: 360px){
+
 	.slider{
 		max-width: 300px;
 	}
 	.slide img{
 		max-width: 80%;
 	}
+
 }
