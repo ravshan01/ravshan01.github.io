@@ -6,6 +6,15 @@
 @import './includes/_main.scss';
 
 
+
+.wrap, .content{
+	padding: 0;
+}
+.body-start-text, .body-end-text{
+	display: none;
+}
+
+
 main{
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
