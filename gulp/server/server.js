@@ -5,6 +5,7 @@ const del = require('del');
 const pug2html = require('../common/pug2html.js');
 const images   = require('../common/images.js');
 const scss2css = require('../common/scss2css.js');
+const css = require('../common/css.js');
 const js  = require('../common/js.js');
 
 
@@ -16,13 +17,14 @@ async function server(){
 		parallel(
 			() => {	
 				return src([ 
-						'src/**/*', '!src/**/*.pug', '!src/**/*.scss', '!src/**/*.js', 
-						'src/**/*.jpg', 'src/**/*.png', '!src/**/*.svg', 'src/**/*.ico' 
+						'src/**/*', '!src/**/*.pug', '!src/**/*.css', '!src/**/*.scss', '!src/**/*.js', 
+						'!src/**/*.jpg', '!src/**/*.png', '!src/**/*.svg', '!src/**/*.ico' 
 					])
 					.pipe( dest('static/') )
 			},
 
 			() => pug2html('static/'),
+			() => css('static/', true, browserSync, true),
 			() => scss2css('static/assets/css/', true, browserSync), // иначе не будет создана sourcemap
 			() => js('static/'),
 			() => images('static/', true, browserSync)
@@ -37,14 +39,12 @@ async function server(){
 async function startServer(){
 
 	watch('src/**/*.html', () => browserSync.reload() );
-	watch('src/**/*.css',  () => src('src/**/*.css').pipe( dest('static/') ).pipe( browserSync.stream() ) );
-
 	watch([ 'src/**/*.jpg', 'src/**/*.png', 'src/**/*.svg', 'src/**/*.ico' ], () => images('static/', true, browserSync) )
 
-	watch('src/pages/**/*.pug', () => pug2html('static/', true, browserSync)) // DevMode = true
-	watch('src/assets/**/*.scss', () => scss2css('static/assets/css/', true, browserSync)) // DevMode = true
-	watch('src/**/*.js',  () => js('static/', true, browserSync))  // DevMode = true
-
+	watch('src/pages/**/*.pug', () => pug2html('static/', true, browserSync))
+	watch('src/assets/**/*.scss', () => scss2css('static/assets/css/', true, browserSync))
+	watch('src/**/*.css',  () => css('static/', true, browserSync) )
+	watch('src/**/*.js',  () => js('static/', true, browserSync))
 
 	browserSync.init({
 		server : {

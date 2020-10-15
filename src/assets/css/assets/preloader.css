@@ -1,11 +1,3 @@
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
-body{
-  background: #1c2326;
-}
-
 .banter-loader {
   position: absolute;
   left: 50%;

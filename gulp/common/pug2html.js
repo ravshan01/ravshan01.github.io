@@ -9,7 +9,7 @@ async function pug2html(destPath = 'static/', devMode = false, server){
 	if ( devMode ){
 		return src('src/pages/*.pug')
 			.pipe( plumber() )
-			.pipe( cashed('pug') )
+			.pipe( cached('pug') )
 			.pipe( pug({ pretty : true }) )
 			.pipe( dest(destPath) )
 			.pipe( server.stream() )

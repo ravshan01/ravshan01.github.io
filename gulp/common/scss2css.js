@@ -19,7 +19,6 @@ async function scss2css(destPath, devMode = false, server = null){
 			.pipe( sourcemaps.init() )
 			.pipe( sass() )
 			.pipe( sourcemaps.write() )
-			.pipe( plumber.stop() )
 			.pipe( dest(destPath) )
 			.pipe( server.stream() )
 
