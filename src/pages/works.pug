@@ -12,118 +12,55 @@ append scripts
 	script(src="/assets/js/works.js")
 
 
+
 block content
-	
-	// 16 sections
 	main
 
-		section
-			img(src="assets/images/works/paint.jpg" alt="")
-
-			.img-hover
-				.exposition
-					span Paint App
-				a(href="projects/paint_app/index.html" target="_blank")
-					i(class="fa fa-arrow-right")
-
-		section
-			img(src="assets/images/works/color-genrator.png" alt="")
-
-			.img-hover
-				.exposition
-					span Color Generator
-				a(href="projects/color-generator/index.html" target="_blank")
-					i(class="fa fa-arrow-right")
-
-		section
-			img(src="assets/images/works/k.jpg" alt="")
-
-			.img-hover
-				.exposition
-					span Shulte table
-				a(href="projects/schulte-table/index.html" target="_blank")
-					i(class="fa fa-arrow-right")
-
-		section
-			img(src="assets/images/works/mental-trainers.png" alt="")
-
-			.img-hover
-				.exposition
-					span Mental Trainers
-				a(href="https://ravshan01.gitlab.io" target="_blank")
-					i(class="fa fa-arrow-right")
+		- const sectionCount = 16;
+		//- - 
+		//- let works = [ 
+		//- 	-	
+		//- 		{
+		//- 			image : '/assets/images/works/paint-app.jpg',
+		//- 			text  : Paint App,
+		//- 			link  : '/projects/paint-app/index.html'
+		//- 		},
+		//- 		{
+		//- 			image : '/assets/images/works/color-generator.png',
+		//- 			text  : 'Color Generator',
+		//- 			link  : '/projects/color-generator/index.html'
+		//- 		},		
+		//- 		{
+		//- 			image : '/assets/images/works/shulte-table.jpg',
+		//- 			text  : 'Shulte Table',
+		//- 			link  : '/projects/schulte-table/index.html'
+		//- 		},	
+		//- 		{
+		//- 			image : '/assets/images/works/mental-trainers.png',
+		//- 			text  : 'Mental Trainers',
+		//- 			link  : 'https://ravshan01.gitlab.io' 
+		//- 		}
+		//- ];
 
 
 
-		section
-			img(src="assets/images/works/empty.jpg" alt="")
 
-			.img-hover
-				.exposition
-					span empty
-				a(href="#" target="_blank")
-					i(class="fa fa-arrow-right")
+		//- - 
+		//- 	for (;sectionCount - works.length !== 0;) works.push({
+		//- 		image : '/assets/images/works/empty.js',
+		//- 		text  : 'Empty',
+		//- 		link  : '#'
+		//- 	});
 
-		section
-			img(src="assets/images/works/empty.jpg" alt="")
 
-			.img-hover
-				.exposition
-				<spa >emty
-				a(href="#" target="_blank")
-					i(class="fa fa-arrow-right")
+		//- each val in works
+		//- 	section
+		//- 		img(src = val.image alt="")
 
-		section
-			img(src="assets/images/works/empty.jpg" alt="")
+		//- 		.img-hover
+		//- 			.exposition
+		//- 				span #{val.text}
+		//- 			a(href= val.link target="_blank")
+		//- 				i(class="fa fa-arrow-right")
 
-			.img-hover
-				.exposition
-					span Empty
-				a(href="#" target="_blank")
-					i(class="fa fa-arrow-right")
-
-		section
-			img(src="assets/images/works/empty.jpg" alt="")
-
-			.img-hover
-				.exposition
-					span Empty
-				a(href="#" target="_blank")
-					i(class="fa fa-arrow-right")
-
-		section
-			img(src="assets/images/works/empty.jpg" alt="")
-
-			.img-hover
-				.exposition
-					span Empty
-				a(href="#" target="_blank")
-					i(class="fa fa-arrow-right")
-
-		section
-			img(src="assets/images/works/empty.jpg" alt="")
-
-			.img-hover
-				.exposition
-					span Empty
-				a(href="#" target="_blank")
-					i(class="fa fa-arrow-right")
-
-		section
-			img(src="assets/images/works/empty.jpg" alt="")
-
-			.img-hover
-				.exposition
-					span Empty
-				a(href="#" target="_blank")
-					i(class="fa fa-arrow-right")
-
-		section
-			img(src="assets/images/works/empty.jpg" alt="")
-
-			.img-hover
-				.exposition
-					span Empty
-				a(href="#" target="_blank")
-					i(class="fa fa-arrow-right")
 	</main>
