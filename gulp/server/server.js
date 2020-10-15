@@ -17,17 +17,17 @@ async function server(){
 		parallel(
 			() => {	
 				return src([ 
-						'src/**/*', '!src/**/*.pug', '!src/**/*.css', '!src/**/*.scss', '!src/**/*.js', 
+						'src/**/*', '!src/**/*.pug', '!src/**/*.css', '!src/assets/{scss,scss/**/*}', '!src/**/*.js', 
 						'!src/**/*.jpg', '!src/**/*.png', '!src/**/*.svg', '!src/**/*.ico' 
 					])
 					.pipe( dest('static/') )
 			},
 
 			() => pug2html('static/'),
-			() => css('static/', true, browserSync, true),
+			() => images('static/', true, browserSync),
 			() => scss2css('static/assets/css/', true, browserSync), // иначе не будет создана sourcemap
+			() => css('static/', true, browserSync, true),
 			() => js('static/'),
-			() => images('static/', true, browserSync)
 		),
 
 		startServer
