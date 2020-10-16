@@ -12,9 +12,20 @@ sass.compiler = require('node-sass');
 
 
 
-async function scss2css(destPath, devMode = false, server = null){	
-	if ( devMode ) {
+async function scss2css(destPath, devMode = false, server = null, firstCreated = false){
 
+	if ( devMode && firstCreated )
+		return src('src/assets/scss/**/*.scss')
+			.pipe( plumber() )
+			.pipe( cached('scss') )
+			.pipe( cachedSass('src/assets/scss/') )
+			.pipe( sourcemaps.init() )
+			.pipe( sass() )
+			.pipe( sourcemaps.write() )
+			.pipe( dest(destPath) )
+
+
+	if ( devMode && firstCreated === false ) 
 		return src('src/assets/scss/**/*.scss')
 			.pipe( plumber() )
 			.pipe( cached('scss') )
@@ -25,11 +36,10 @@ async function scss2css(destPath, devMode = false, server = null){
 			.pipe( dest(destPath) )
 			.pipe( server.stream() )
 
-	}
+	
 
 
 	return src('src/assets/scss/**/*.scss')
-		.pipe( cached('scss') )
 		.pipe( sass() )
 		.pipe( autoprefixer({
 			'overrideBrowserslist' : ['last 3 versions'],

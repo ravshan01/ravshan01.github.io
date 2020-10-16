@@ -4,8 +4,16 @@ const plumber = require('gulp-plumber');
 const cached  = require('gulp-cached');
 
 
-async function js(destPath, devMode = false, server){
-	if ( devMode )
+async function js(destPath, devMode = false, server = null, firstCreated = false){
+
+	if ( devMode && firstCreated )
+		return src('src/**/*.js')
+			.pipe( plumber() )
+			.pipe( cached('js') )
+			.pipe( dest(destPath) )
+
+
+	if ( devMode && firstCreated === false )
 		return src('src/**/*.js')
 			.pipe( plumber() )
 			.pipe( cached('js') )
@@ -13,8 +21,8 @@ async function js(destPath, devMode = false, server){
 			.pipe( server.stream() )
 
 
+
 	return src('src/**/*.js')
-		.pipe( cached('js') )
 		.pipe( terser() )
 		.pipe( dest(destPath) )
 }

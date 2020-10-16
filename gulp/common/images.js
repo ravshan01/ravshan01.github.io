@@ -4,20 +4,26 @@ const cached  = require('gulp-cached');
 
 
 
-async function images(destPath, devMode = false, server = null){
+async function images(destPath, devMode = false, server = null, firstCreated = false){
 
-	if ( devMode )
-		return src([ 'src/**/*.jpg', 'src/**/*.png', 'src/**/*.svg', 'src/**/*.ico' ])
-			.pipe( cached('images') )
+	if ( devMode && firstCreated )
+		return src([ 'src/**/*.jpg', 'src/**/*.jpeg', 'src/**/*.png', 'src/**/*.svg', 'src/**/*.ico' ])
 			.pipe( plumber() )
+			.pipe( cached('images') )
+			.pipe( dest(destPath) )
+
+
+	if ( devMode && firstCreated === false )
+		return src([ 'src/**/*.jpg', 'src/**/*.jpeg', 'src/**/*.png', 'src/**/*.svg', 'src/**/*.ico' ])
+			.pipe( plumber() )
+			.pipe( cached('images') )
 			.pipe( dest(destPath) )
 			.pipe( server.stream() )
 
 
-	return src([ 'src/**/*.jpg', 'src/**/*.png', 'src/**/*.ico' ])
-		.pipe( cached('images') )
-		.pipe( dest(destPath) )
 
+	return src([ 'src/**/*.jpg', 'src/**/.jpeg', 'src/**/*.png', 'src/**/*.svg', 'src/**/*.ico' ])
+		.pipe( dest(destPath) )
 }
 
 module.exports = images;

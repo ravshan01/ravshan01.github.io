@@ -17,17 +17,20 @@ async function server(){
 		parallel(
 			() => {	
 				return src([ 
-						'src/**/*', '!src/**/*.pug', '!src/**/*.css', '!src/assets/{scss,scss/**/*}', '!src/**/*.js', 
-						'!src/**/*.jpg', '!src/**/*.png', '!src/**/*.svg', '!src/**/*.ico' 
+						'src/**/*', '!src/{pages,pages/**/*}', '!src/**/*.css', '!src/assets/{scss,scss/**/*}', '!src/**/*.js', 
+						'!src/**/*.jpg', '!src/**/*.jpeg', '!src/**/*.png', '!src/**/*.svg', '!src/**/*.ico' 
 					])
 					.pipe( dest('static/') )
 			},
 
-			() => pug2html('static/'),
-			() => images('static/', true, browserSync),
-			() => scss2css('static/assets/css/', true, browserSync), // иначе не будет создана sourcemap
-			() => css('static/', true, browserSync, true),
-			() => js('static/'),
+			() => pug2html('static/', true, browserSync, true),
+			() => images('static/', true, browserSync, true),
+			() => js('static/', true, browserSync, true),
+
+			series(
+				() => css('static/', true, browserSync, true),
+				() => scss2css('static/assets/css/', true, browserSync, true)
+			)
 		),
 
 		startServer
