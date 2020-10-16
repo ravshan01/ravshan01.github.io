@@ -1,0 +1,1 @@
+createAnimateText(document.querySelector("h1"));const slider=createSlider(document.querySelector(".slider"),{slide:!0,infinite:!1}),cube=new Cube;cube.init();
