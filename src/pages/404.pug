@@ -6,5 +6,16 @@ block variables
 	- var description = 'Ravshan selimov Portfolio, not found';
 
 
-block styles
+append styles
 	link(rel="stylesheet" href="/assets/css/404.css")
+
+append scripts
+	script(src="/assets/js/404.js" defer)
+
+
+
+
+block content
+	h1.pre(data-text="404")
+	span Ooops, page not found
+	a.button(href="/") Home
