@@ -1,2 +1,2 @@
 RewriteEngine On
-DirectoryIndex build/index.html
+DirectoryIndex build
