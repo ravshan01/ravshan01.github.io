@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru_RU">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <title>Mini Game</title>
+  <meta name="description" content="Mini Game" />
+  <meta name="Author" content="_blank, Selimov Ravshan" />
+  <meta name="Copyright" content="Selimov Ravshan" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script src="assets/js/bundle.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+  <div class="wrap">
+    <div class="preloader-wrap">
+      
+        <div class="loading-window">
+          <div class="car">
+              <div class="strike"></div>
+              <div class="strike strike2"></div>
+              <div class="strike strike3"></div>
+              <div class="strike strike4"></div>
+              <div class="strike strike5"></div>
+              <div class="car-detail spoiler"></div>
+              <div class="car-detail back"></div>
+              <div class="car-detail center"></div>
+              <div class="car-detail center1"></div>
+              <div class="car-detail front"></div>
+              <div class="car-detail wheel"></div>
+              <div class="car-detail wheel wheel2"></div>
+          </div>
+
+          <div class="text">
+              <span>Loading</span><span class = "dots">...</span>
+          </div>
+      </div>
+
+    </div>
+
+
+    <div class="modal">
+      <span>Включить полноэкранный режим?</span>
+      <div class="modal-buttons">
+        <div class="accept">Включить</div>
+        <div class="cancel">Отменить</div>
+      </div>
+    </div>
+
+
+
+    <div class="load-page fixed-page opacity-0">
+      
+        <div class="loading-window">
+          <div class="car">
+              <div class="strike"></div>
+              <div class="strike strike2"></div>
+              <div class="strike strike3"></div>
+              <div class="strike strike4"></div>
+              <div class="strike strike5"></div>
+              <div class="car-detail spoiler"></div>
+              <div class="car-detail back"></div>
+              <div class="car-detail center"></div>
+              <div class="car-detail center1"></div>
+              <div class="car-detail front"></div>
+              <div class="car-detail wheel"></div>
+              <div class="car-detail wheel wheel2"></div>
+          </div>
+
+          <div class="text">
+              <span>Loading</span><span class = "dots">...</span>
+          </div>
+      </div>
+
+    </div>
+
+
+
+
+    <div class="home-page fixed-page opacity-1">
+      <div class="link main-link start_link">    Старт </div>
+      <div class="link main-link settings_link"> Настройки </div>
+      <div class="link main-link help_link">     Помощь </div>
+    </div>
+
+
+
+    <div class="modes-page fixed-page opacity-0">
+      <div class="link to-home"> <i class="fa fa-arrow-left"></i> <span>Назад</span> </div>
+
+        <div class="link main-link mode-page_link easy-mode_link">   Легко  </div>
+        <div class="link main-link mode-page_link medium-mode_link"> Средне </div>
+        <div class="link main-link mode-page_link hard-mode_link">   Сложно </div>
+    </div>
+
+
+
+    <!-- ---------------------------------------------------------- -->
+    <div class="game-page fixed-page opacity-0">
+
+      <div class="game-header">
+        <div class="game-active-colors"> <!-- <div class="game-active-color"></div> --> </div>
+
+        <div class="game-timer">00:00</div>
+        <div class="link game-page_link pause_link"> <i class="fa fa-pause"></i> </div>
+      </div>
+
+
+      <div class="game-start-timer"></div>
+      <div class="game-scene"></div>
+    </div>
+
+
+
+
+    <div class="paused-page fixed-page opacity-0">
+      <div class="text">Пауза</div>
+
+      <div class="paused-page-links">
+        <div class="paused-page_link home_link link" title="На главную">     <i class="fa fa-home"></i>  </div>
+        <div class="paused-page_link restart_link link" title="Заново">  <i class="fa fa-refresh"></i> </div>
+        <div class="paused-page_link continue_link link" title="Продолжить"> <i class="fa fa-play"></i>  </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="game-response-page fixed-page opacity-0">
+      <div class="colors-inputs">
+        
+        <div class="color-input-wrap">
+          <div id="color-div1" class="color-div"></div>
+          <input type="number" id="color-input1" class="color-input"/>
+        </div>
+
+        <div class="color-input-wrap display-none">
+          <div id="color-div2" class="color-div"></div>
+          <input type="number" id="color-input2" class="color-input"/>
+        </div>
+
+        <div class="color-input-wrap display-none">
+          <div id="color-div3" class="color-div"></div>
+          <input type="number" id="color-input3" class="color-input">
+        </div>
+
+      </div>
+
+      <div class="check-colors_link main-link">Проверить</div>
+    </div>
+
+
+
+    <div class="game-end-page fixed-page opacity-0">
+      <div class="win display-none"> Правильно </div>
+      <div class="defeat display-none"> Неправильно </div>
+
+      <div class="game-end-page-links">
+        <div class="game-end-page_link home_link link" title="На главную">    <i class="fa fa-home"></i> </div> 
+        <div class="game-end-page_link restart_link link" title="Заново"> <i class="fa fa-refresh"></i> </div>
+        <div class="game-end-page_link next_link link" title="Играть">    <i class="fa fa-play"></i>  </div>
+      </div>
+    </div>
+
+
+
+    <!----------------------------------------------------------------------->
+    <div class="settings-page fixed-page opacity-0">
+      <div class="link to-home"> <i class="fa fa-arrow-left"></i> Назад </div>
+
+      <div class="settings-part round-time">
+        <div class="text" title="Время одного раунда">Время Игры</div>
+
+        <div class="controls">
+          <div class="minus"> <i class="fa fa-minus"></i> </div>
+          <div id="round-time-div" class="settings-div"></div>
+          <div class="plus"> <i class="fa fa-plus"></i> </div>
+         </div>
+
+      </div>
+
+
+      <div class="settings-part spawn-time">
+        <div class="text" title="Таймаут появления новых объектов">Таймаут появления</div>
+
+        <div class="controls">
+          <div class="minus"> <i class="fa fa-minus"></i> </div>
+          <div id="spawn-time-div" class="settings-div"></div>
+          <div class="plus"> <i class="fa fa-plus"></i> </div>
+        </div>
+
+      </div>
+
+      
+      <div class="settings-part speed">
+        <div class="text" title="За сколько секунд пролетает через экран">Скорость</div>
+
+        <div class="controls">
+          <div class="minus"> <i class="fa fa-minus"></i> </div>
+          <div id="speed-div" class="settings-div"></div>
+          <div class="plus"> <i class="fa fa-plus"></i> </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!----------------------------------------------------------------------->
+    <div class="help-page fixed-page opacity-0">
+      <div class="link to-home"> <i class="fa fa-arrow-left"></i> Назад </div>
+
+      <div class="help-card">
+        <p>
+          <span>Цель Игры :</span>
+          Сосчитать количество пролетевших объектов(самолётов) определённых цветов.
+        </p>
+
+        <div class="img-wrap"> <img src="assets/images/help-colors.jpg" alt=""> </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+</html>
