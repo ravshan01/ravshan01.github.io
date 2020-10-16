@@ -1,0 +1,173 @@
+.grid-col-5{
+	grid-template-columns: repeat(5, 1fr);
+}
+.grid-row-5{
+	grid-template-rows: repeat(5, 1fr);
+}
+
+.grid-col-6{
+	grid-template-columns: repeat(6, 1fr);
+}
+.grid-row-6{
+	grid-template-rows: repeat(6, 1fr);
+}
+
+.grid-col-7{
+	grid-template-columns: repeat(7, 1fr);
+}
+.grid-row-7{
+	grid-template-rows: repeat(7, 1fr);
+}
+
+.grid-col-8{
+	grid-template-columns: repeat(8, 1fr);
+}
+.grid-row-8{
+	grid-template-rows: repeat(8, 1fr);
+}
+
+.grid-col-9{
+	grid-template-columns: repeat(9, 1fr);
+}
+.grid-row-9{
+	grid-template-rows: repeat(9, 1fr);
+}
+
+.grid-col-10{
+	grid-template-columns: repeat(10, 1fr);
+}
+.grid-row-10{
+	grid-template-rows: repeat(10, 1fr);
+}
+
+
+
+.controls{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}
+
+.play, .stop{
+	margin-right: 10px;
+	font-size: 1.4em;
+	transition: .4s;
+}
+.play{
+	color: #080;
+	font-size: 1.6em;
+}
+.stop{
+	transform: scale(0);
+}
+
+
+.time{
+	margin-left: 80px;
+	font-size: 1.4em;
+}
+
+
+
+.table{
+	display: grid;
+	margin: auto;
+
+	color: #fff;
+	border: 1px solid #fff;
+	border-left-width: 2px;
+}
+
+.cell{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding: 2px;
+	background: #002d;
+	
+	text-shadow: 0px 2px 0px #000;
+	border: 1px solid #fff;
+	transition: .4s;
+}
+.cell:hover{
+	cursor: default;
+	color: #fff;
+	border-color: #fff;
+}
+
+
+
+/*media*/
+
+@media (max-width: 1200px){
+	.cell{
+
+		font-size: .85em;
+	}
+
+}
+
+
+@media (max-width: 860px){
+
+	.cell{
+		font-size: .75em;
+	}
+
+}
+
+@media (max-width: 800px){
+
+	.main{
+		width: 98%;
+	}
+	.cell{
+		border: .4px solid #fff8;
+	}
+
+}
+
+@media (max-width: 640px){
+
+	.cell{
+		font-size: .7em
+	}
+
+}
+
+
+@media ( max-width: 560px ){
+
+	.time{
+		margin-left: 50px;
+	}
+
+}
+
+
+@media (max-width: 480px){
+
+	.cell{
+		font-size: .6em;
+		border: .2px solid #fff4;
+	}
+	.controls{
+		transform: translateY(50%);
+	}
+
+	.time{
+		margin-left: 30px;
+	}
+
+}
+
+
+@media (max-width: 360px){
+
+	.cell{
+		font-size: .5em;
+	}
+
+}
