@@ -1,0 +1,174 @@
+@import './includes/_variables.scss';
+@import './includes/_util.scss';
+@import './includes/_text-animate.scss';
+@import './includes/_preloader.scss';
+@import './includes/_header_footer.scss';
+@import './includes/_slider.scss';
+@import './includes/_main.scss';
+
+
+.content{
+	flex-flow: row wrap-reverse;
+	perspective: 1000px;
+}
+
+
+main{
+	display: flex;
+	align-items: center;
+}
+
+.about-text{
+	display: flex;
+	flex-direction: column;
+
+	margin-top: 30px;
+	padding-left: 1em;
+}
+
+
+
+
+.piramid{
+	position: relative;
+	width: 240px;
+	min-width: 240px;
+	height: 240px;
+	min-height: 240px;
+	margin: 70px;
+	margin-top: -30px;
+
+	transform-style: preserve-3d;
+	animation: piramid-rotate 25s linear infinite;
+}
+
+
+.side{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	min-width: 240px;
+	min-height: 240px;
+	padding-bottom: 40px;
+	background: #0d0d0d;
+
+	transform-origin: bottom center;
+	clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+}
+.side img{
+	display: block;
+	margin-top: auto;
+	width: 40%;
+	height: 40%;
+}
+
+
+.base{
+	transform-origin: center center;
+	clip-path: none;
+
+	transform: translateY(119.2px) rotateX(90deg) rotateY(180deg);
+}
+.base img{
+	width: 80%;
+	height: 80%;
+}
+
+.left{
+	transform: translateX(-119.2px) rotateY(-90deg) rotateX(30deg);
+}
+.right{
+	transform: translateX(119.2px) rotateY(90deg) rotateX(30deg);
+}
+
+.front{
+	transform: translateZ(119.2px) rotateX(30deg);
+}
+.back{
+	transform: translateZ(-119.2px) rotateY(180deg) rotateX(30deg);
+}
+
+
+
+.slider{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	z-index: -1;
+}
+
+.slide{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.slide::before{
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #232B2Ebb;
+	z-index: 1;
+}
+
+.slide img{
+	width: auto;
+	max-width: 80%;
+	height: auto;
+	max-height: 70%
+}
+
+
+@keyframes piramid-rotate{
+	25%{
+		transform: rotateX(-50deg) rotateY(-360deg);
+	}
+	55%{
+		transform: rotateX(0deg) rotateY(-60deg);
+	}
+	80%{
+		transform: rotateX(70deg) rotateY(150deg);
+	}
+}
+
+
+
+
+@media (max-width: 960px){
+
+	.piramid{
+		margin-top: 40px;
+		margin-bottom: 100px;
+	}
+
+}
+
+
+@media (max-width: $mobWidth + 100){
+
+	.about-text{
+		margin-right: 1em;
+	}
+	.piramid{
+		display: none;
+	}
+
+}
+
+@media (max-width: 480px){
+	.slide img{
+		height: 50%;
+	}
+}

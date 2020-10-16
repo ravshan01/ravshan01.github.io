@@ -1,0 +1,1 @@
+createAnimateText( document.querySelector('h1') );

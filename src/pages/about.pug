@@ -1,0 +1,43 @@
+extends ./common/base.pug
+
+block variables
+	- var title = 'About';
+	- var description = 'Ravshan selimov Portfolio, about me';
+
+
+append styles
+	link(rel="stylesheet" href="/assets/css/about.css")
+append scripts
+	script(src="/assets/js/assets/slider.js" defer)
+	script(src="/assets/js/about.js" defer)
+
+
+
+block content
+	main
+		section.about-text
+			<span class="code">&lth1&gt</span>
+			h1.pre(data-text="About Me")
+			<span class="code">&lt/h1&gt</span>
+
+			p.about-text
+				| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, cupiditate exercitationem qui quam. Quia, hic, enim.
+				| Voluptatem eveniet id minus corporis reiciendis molestias similique quibusdam.
+			a.button(href="works.html") My Projects
+
+
+		section.piramid
+			<div class="side base">  <img src="assets/images/code-logo/gulp.png" alt="">   </div>
+			<div class="side left">  <img src="assets/images/code-logo/typescript.png" alt="">    </div>
+			<div class="side right"> <img src="assets/images/code-logo/react.png" alt="">  </div>
+			<div class="side front"> <img src="assets/images/code-logo/js.png" alt="">     </div>
+			<div class="side back">  <img src="assets/images/code-logo/github.png" alt=""> </div>			
+
+
+	.slider
+		.slides
+			<div class="slide"> <img src="assets/images/code-logo/js.png" alt="">   </div>
+			<div class="slide"> <img src="assets/images/code-logo/typescript.png" alt=""> </div>
+			<div class="slide"> <img src="assets/images/code-logo/react.png" alt="">  </div>
+			<div class="slide"> <img src="assets/images/code-logo/gulp.png" alt="">   </div>
+			<div class="slide"> <img src="assets/images/code-logo/php.png" alt="">    </div>

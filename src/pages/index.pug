@@ -1,0 +1,24 @@
+extends ./common/base.pug
+
+block variables
+	- var title = 'Home';
+	- var description = 'Ravshan Selimov Portfolio';
+
+
+append styles
+	link(rel="stylesheet" href="/assets/css/index.css")
+append scripts
+	script(src="/assets/js/index.js" defer)
+
+
+
+block content
+	main
+		<span class="code">&lth1&gt</span>
+		h1.pre(data-text="Hi,I'm Ravshan,web developer")
+		<span class="code">&lt/h1&gt</span>
+
+		a.button(href="about.html") About Me
+
+	img.home-logo(src="assets/images/logo-medium.png" alt="logo")
+

@@ -1,0 +1,36 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "[portfolio](https://ravshan01.github.io)",
+  "main": "index.js",
+  "dependencies": {},
+  "scripts": {
+    "start": "gulp server",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravshan01/ravshan01.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ravshan01/ravshan01.github.io/issues"
+  },
+  "homepage": "https://github.com/ravshan01/ravshan01.github.io#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cached": "^1.1.1",
+    "gulp-cached-sass": "0.0.5",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser": "^1.4.0",
+    "node-sass": "^4.14.1"
+  }
+}

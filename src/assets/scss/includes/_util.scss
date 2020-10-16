@@ -1,0 +1,29 @@
+.visible{
+	visibility: visible!important;
+}
+.hide{
+	visibility: hidden!important;
+}
+
+.opacity-0{
+	opacity: 0;
+}
+.opacity-1{
+	opacity: 1;
+}
+
+.translate-0{
+	transform: translate(0)!important;
+}
+
+
+.pre{
+	white-space: pre;
+}
+.pre span{
+	display: inline-block;
+}
+.pre span:hover{
+	cursor: default;
+}
+
