@@ -16,7 +16,7 @@ async function build(){
 		parallel(
 			() => {
 				return src([
-						'src/**/*', 'src/**/*.htaccess', '!src/{pages,pages/**/*}', '!src/assets/{scss,scss/**/*}', '!src/**/*.css', '!src/**/*.js',
+						'src/**/*', '!src/{pages,pages/**/*}', '!src/assets/{scss,scss/**/*}', '!src/**/*.css', '!src/**/*.js',
 						'!src/**/*.jpg', '!src/**/*.jpeg', '!src/**/*.png', '!src/**/*.svg', '!src/**/*.ico'
 					])
 					.pipe( dest('build/') )
