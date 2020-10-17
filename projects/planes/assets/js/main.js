@@ -1,1 +1,1 @@
-window.addEventListener("load",(()=>{document.querySelector(".preloader-wrap").style.display="none",new App({distinctPlanesCount:5,colors:["black","blue","green","pink","orange"],defaultSpeed:2,defaultSpawnTime:.75,defaultRoundTime:30}).init()}));
+window.addEventListener("load",(()=>{document.querySelector(".preloader-wrap").style.display="none",new App({distinctPlanesCount:5,colors:["black","blue","green","pink","orange"],defaultSpeed:1.5,defaultSpawnTime:.75,defaultRoundTime:30}).init()}));
