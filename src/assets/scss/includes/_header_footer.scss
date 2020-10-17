@@ -53,11 +53,16 @@
 
 
 
+header{
+	flex: 1;
+}
+
 .logo{
 	display: block;
 	width: 100%;
 	height: auto;
-	max-height: 40%;
+	min-height: 38vh;
+	max-height: 60%;
 }
 
 
@@ -125,5 +130,15 @@ footer p{
 		transform: translateX(-110%);
 	}
 
+
+}
+
+
+@media (max-width: 450px){
+
+	.toggle-menu-link{
+		box-shadow: 0 0 2px #222;
+		text-shadow: 0 0 2px #000;
+	}
 
 }
