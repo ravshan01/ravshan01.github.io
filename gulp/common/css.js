@@ -23,7 +23,10 @@ async function css(destPath, devMode = false, server = null, firstCreated = fals
 
 
 	return src('src/**/*.css')
-		.pipe( autoprefixer() )
+		.pipe( autoprefixer({
+			'overrideBrowserslist' : ['last 3 versions'],
+			'cascade' : false
+		}) )
 		.pipe( cleanCss() )
 		.pipe( dest(destPath) )
 } 
