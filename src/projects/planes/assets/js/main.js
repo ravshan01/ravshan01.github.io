@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
 			speed : {
 				min : 0.5,
 				max : 2,
-				default : 1.5
+				default : 1.25
 			}
 		}
 	}
