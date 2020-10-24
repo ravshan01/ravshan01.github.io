@@ -1,4 +1,4 @@
-window.addEventListener('load', () =>{
+window.addEventListener('load', function(){
 
   document.querySelector('.preloader').style.display = 'none';
 
