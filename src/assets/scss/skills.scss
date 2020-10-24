@@ -107,6 +107,7 @@ main{
 
 
 .slider{
+	width: 100%;
 	margin: 20px 0;
 	height: 500px;
 }
@@ -169,7 +170,7 @@ main{
 @media (max-width: 360px){
 
 	.slider{
-		max-width: 300px;
+		max-width: 100%;
 	}
 	.slide img{
 		max-width: 80%;
