@@ -3,14 +3,14 @@ window.onload = function(){
 	document.querySelector('.preloader-wrap').style.display = 'none';
 
 
-	let canv = document.getElementById('canvas'),
-		ctx  = canv.getContext('2d'),
-		isMouseDown = false,
-		replayDraw  = false;
+	let canv = document.getElementById('canvas');
+	let	ctx  = canv.getContext('2d');
+	let	isMouseDown = false;
+	let	replayDraw  = false;
 
 	canv.style.display = 'block';
-	canv.width  = window.innerWidth;
-	canv.height = window.innerHeight;
+	canv.width  = document.documentElement.clientWidth;
+	canv.height = document.documentElement.clientHeight;
 
 //Draw
 
@@ -22,12 +22,12 @@ window.onload = function(){
 	canv.addEventListener('touchmove', mouseMove);
 
 
-	let color      = '#ffffff',
-		background = '#000000',
-		lineWidth  = 20,
-		radius     = lineWidth / 2,
-		offsetX,
-		offsetY;
+	let color      = '#ffffff';
+	let	background = '#000000';
+	let	lineWidth  = 20;
+	let	radius     = lineWidth / 2;
+	let	offsetX;
+	let	offsetY;
 
 	ctx.lineWidth = lineWidth; 
 	canv.style.backgroundColor = background;
@@ -38,14 +38,16 @@ window.onload = function(){
 	function mouseDown(){
 		isMouseDown = true;
 	}
+
 	function mouseUp(){
 		isMouseDown = false;
+
 		if ( !replayDraw ) {
 			coords.push('mouseup');
 			ctx.beginPath();
 		}
-		
 	}
+
 	function mouseMove(e){
 		offsetX = e.offsetX;
 		offsetY = e.offsetY;
@@ -93,21 +95,23 @@ window.onload = function(){
 
 //Clear   Save   Replay
 
-	let clear  = document.querySelector('.clear'),
-		save   = document.querySelector('.save'),
-		replay = document.querySelector('.replay'),
-		coords = [];
+	let clear  = document.querySelector('.clear');
+	let	save   = document.querySelector('.save');
+	let	replay = document.querySelector('.replay');
+	let	coords = [];
 	
 
 
 
-	clear.addEventListener('click', (e) => {
+	clear.addEventListener('click', e => {
 		e.preventDefault();
 		clearCanv();
 		coords = [];
 	});
-	save.addEventListener('click', (e) => {
+
+	save.addEventListener('click', e => {
 		e.preventDefault();
+
 		sessionStorage.setItem('background', background);
 		sessionStorage.setItem('coords', JSON.stringify(coords));
 
@@ -118,7 +122,7 @@ window.onload = function(){
 	});
 
 
-	replay.addEventListener('click', (e) =>{
+	replay.addEventListener('click', e =>{
 		e.preventDefault();
 		coords = JSON.parse(sessionStorage.getItem('coords'));
 
@@ -128,10 +132,11 @@ window.onload = function(){
 		let timer = setInterval( () => {
 			replayDraw = true;
 
-			if ( !coords.length || coords.length == 1 ) {
+			if ( coords.length <= 1 ) {
 				replayDraw = false;
 				clearInterval(timer);
 				ctx.beginPath();
+
 				return;
 			}else{
 				let opt = coords.shift();
@@ -142,15 +147,14 @@ window.onload = function(){
 					lineWidth  = opt.lineWidth; 
 					draw();
 			}
+
 			background = sessionStorage.getItem('background');
 			colorPalitFunc();
 			backgroundPalitFunc();
 			widthPalitFunc();
 
 
-		},25);
-
-		// coords = JSON.parse( sessionStorage.getItem('coords') );
+		}, 25);
 
 
 	})
@@ -161,17 +165,17 @@ window.onload = function(){
 
 //Options  -  Color  Background  LineWidth  Eraser	
 
-	let settings        = document.querySelector('.settings'),
-		settingsWrap    = document.querySelector('.settings-wrap'),
-		colorLink       = document.querySelector('.color-link'),
-		colorPalit      = document.querySelectorAll('.color-wrap .color li'),
-		colorPalitSpan  = document.querySelectorAll('.color-wrap .color span'),
-		backgroundLink  = document.querySelector('.background-link'),
-		backgroundPalit = document.querySelectorAll('.background-wrap .background li'),
-		backgroundPalitSpan = document.querySelectorAll('.background-wrap .background span'),
-		widthLink       = document.querySelector('.width-link'),
-		widthPalit      = document.querySelectorAll('.width li'),
-		widthPalitspan  = document.querySelectorAll('.width li span');
+	let settings        = document.querySelector('.settings');
+	let	settingsWrap    = document.querySelector('.settings-wrap');
+	let	colorLink       = document.querySelector('.color-link');
+	let	colorPalit      = document.querySelectorAll('.color-wrap .color li');
+	let	colorPalitSpan  = document.querySelectorAll('.color-wrap .color span');
+	let	backgroundLink  = document.querySelector('.background-link');
+	let	backgroundPalit = document.querySelectorAll('.background-wrap .background li');
+	let	backgroundPalitSpan = document.querySelectorAll('.background-wrap .background span');
+	let	widthLink       = document.querySelector('.width-link');
+	let	widthPalit      = document.querySelectorAll('.width li');
+	let	widthPalitspan  = document.querySelectorAll('.width li span');
 
 
 	settings.addEventListener('click', (e) => {
@@ -188,24 +192,27 @@ window.onload = function(){
 
 	function showPalit(e){
 		e.preventDefault();
-		if ( this.nextElementSibling ){
+
+		if ( this.nextElementSibling ) // nextElementSibling = palit
 			this.nextElementSibling.classList.toggle('active-palit');
-		}else this.nextSibling.classList.toggle('active-palit');
+		else this.nextSibling.classList.toggle('active-palit');
 		
-		this.childNodes[1].classList.toggle('rotate');
+		this.childNodes[1].classList.toggle('rotate'); // childNodes = i.fa
 	}
 
 
-	colorPalit.forEach( function(elem, index){
+	colorPalit.forEach( (elem, index) =>{
 		colorFunc(elem, index);
 		elem.addEventListener('click', colorActive);
 		colorPalitFunc();
 	});
+
 	backgroundPalit.forEach( (elem, index)=>{
 		colorFunc(elem, index);
 		elem.addEventListener('click', backgroundActive);
 		backgroundPalitFunc();
 	});
+
 	widthPalit.forEach( (elem, index)=>{
 		elem.style.width  = '' + widthPalitspan[index].innerText + 'px';
 		elem.style.height = '' + widthPalitspan[index].innerText + 'px'; 
@@ -236,7 +243,7 @@ window.onload = function(){
 		let active = document.querySelector('.background-wrap .background li.active');
 		if ( active ) active.classList.remove('active');
 
-		backgroundPalit.forEach( (elem, index)=>{
+		backgroundPalit.forEach( (elem, index) =>{
 			if ( background == backgroundPalitSpan[index].innerText ) elem.classList.add('active');
 		});
 	}
@@ -259,6 +266,7 @@ window.onload = function(){
 
 		color = this.childNodes[0].innerText;
 	}
+
 	function backgroundActive(){
 		let active = document.querySelector('.background-wrap .background li.active');
 		active.classList.remove('active');
@@ -267,6 +275,7 @@ window.onload = function(){
 		canv.style.backgroundColor = this.childNodes[0].innerText;
 		background = this.childNodes[0].innerText;
 	}
+	
 	function widthActive(){
 		let active = document.querySelector('.width li.active');
 		active.classList.remove('active');
