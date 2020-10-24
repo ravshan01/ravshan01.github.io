@@ -1,6 +1,6 @@
 node_modules/
-build/
-static/
+/build/
+/static/
 
 # Файлы и папки операционной системы
 .DS_Store

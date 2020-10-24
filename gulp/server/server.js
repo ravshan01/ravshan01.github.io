@@ -3,6 +3,7 @@ const browserSync = require('browser-sync').create();
 const del = require('del');
 
 const pug2html = require('../common/pug2html.js');
+const projectsHtml = require('../common/projectsHtml.js');
 const images   = require('../common/images.js');
 const scss2css = require('../common/scss2css.js');
 const css = require('../common/css.js');
@@ -41,7 +42,7 @@ async function server(){
 
 async function startServer(){
 
-	watch('src/**/*.html', () => browserSync.reload() );
+	watch('src/projects/**/*.html', () => projectsHtml('static/projects/', browserSync) );
 	watch([ 'src/**/*.jpg', 'src/**/*.png', 'src/**/*.svg', 'src/**/*.ico' ], () => images('static/', true, browserSync) )
 
 	watch('src/pages/**/*.pug', () => pug2html('static/', true, browserSync))
