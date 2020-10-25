@@ -13,8 +13,10 @@
 
 	text-align: right;
 	font-weight: bold;
+
 	box-shadow: 0 0 30px 5px #0004;
 	transition: .4s;
+	overflow-y: auto;
 	z-index: 100;
 }
 .header_footer.translate-0{
