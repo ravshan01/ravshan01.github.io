@@ -22,8 +22,10 @@ async function js(destPath, devMode = false, server = null, firstCreated = false
 
 
 
-	return src('src/**/*.js')
+	src([ 'src/**/*.js', '!src/**/main.js'])
 		.pipe( terser() )
+		.pipe( dest(destPath) )
+	src('src/**/main.js')
 		.pipe( dest(destPath) )
 }
 	
