@@ -1,1 +1,41 @@
-window.addEventListener("load",(()=>{window.addEventListener("mousedown",(e=>e.preventDefault())),document.querySelector(".preloader").style.display="none";const e=document.querySelectorAll("nav a");e[0].classList.add("active");for(let t=0;t<e.length;t++)window.location.href===e[t].href&&(e[0].classList.remove("active"),e[t].classList.add("active"));const t=document.querySelector(".toggle-menu-link"),n=document.querySelector(".header_footer");t.addEventListener("click",(()=>{t.classList.toggle("toggle-menu-link-close"),n.classList.toggle("translate-0")}));document.querySelector(".current-year").innerText=(new Date).getFullYear()}));
+window.addEventListener('load', () => { 
+	window.addEventListener('mousedown', e => e.preventDefault());
+
+
+	document.querySelector('.preloader').style.display = 'none'; 
+
+
+	// ***** Navigation *****
+	
+	const navLinks = document.querySelectorAll('nav a');
+	navLinks[0].classList.add('active');
+
+	for (let i = 0; i < navLinks.length; i++){
+		if ( window.location.href === navLinks[i].href ) {
+
+			navLinks[0].classList.remove('active')
+			navLinks[i].classList.add('active')
+			
+		}
+	}
+
+
+	
+	// ***** Toggle Menu *****
+
+	const toglleMenuLink = document.querySelector('.toggle-menu-link');
+	const header = document.querySelector('.header_footer');
+
+	toglleMenuLink.addEventListener('click', () => {
+		toglleMenuLink.classList.toggle('toggle-menu-link-close');
+		header.classList.toggle('translate-0');
+	})
+
+
+
+	// ***** Footer *****
+
+	const year = document.querySelector('.current-year');
+	year.innerText = new Date().getFullYear();
+
+})
