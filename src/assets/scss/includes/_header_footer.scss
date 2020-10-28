@@ -4,8 +4,8 @@
 	position: fixed;
 	top: 0;
 	left: 0;
+	bottom: 0;
 	width: 250px;
-	height: 100%;
 
 	background: #232B2E;
 	color: #777;
@@ -16,7 +16,6 @@
 
 	box-shadow: 0 0 30px 5px #0004;
 	transition: .4s;
-	overflow-y: auto;
 	z-index: 100;
 }
 .header_footer.translate-0{
@@ -124,7 +123,7 @@ footer p{
 	}
 	.header_footer{
 		width: 40%;
-		min-width: 200px;
+		min-width: 180px;
 		max-width: 220px;
 		box-shadow: none;
 		transform: translateX(-110%);
@@ -139,6 +138,15 @@ footer p{
 	.toggle-menu-link{
 		box-shadow: 0 0 2px #222;
 		text-shadow: 0 0 2px #000;
+	}
+
+}
+
+
+@media (max-height: 560px){
+
+	.header_footer{
+		font-size: .8em
 	}
 
 }
